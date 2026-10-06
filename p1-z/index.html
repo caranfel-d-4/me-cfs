@@ -50,11 +50,11 @@
   (function(){
     var root=document.documentElement, sp=document.querySelector('.hs-sp'),
         view=sp.querySelector('.hs-view'), tr=sp.querySelector('.hs-track'), c=sp.querySelector('.hs-run .c'),
-        rm=window.matchMedia('(prefers-reduced-motion: reduce)'), dist=0;
+        rm=window.matchMedia('(prefers-reduced-motion: reduce)'), dist=0, hold=0;
     function move(){
       if(rm.matches) return;
-      var H=window.innerHeight, top=sp.getBoundingClientRect().top;
-      var p=Math.min(1,Math.max(0,-top/Math.max(1,sp.offsetHeight-H)));
+      var top=sp.getBoundingClientRect().top;
+      var p=Math.min(1,Math.max(0,-top/Math.max(1,dist)));
       tr.style.transform='translateX('+(-p*dist)+'px)';
       c.textContent=Math.min(4,1+Math.floor(p*4*.999+.15))+' / 4';
     }
@@ -62,7 +62,9 @@
       root.classList.toggle('rm',rm.matches);
       if(rm.matches){sp.style.height='';return;}
       dist=Math.max(0,tr.scrollWidth-view.clientWidth);
-      sp.style.height=(window.innerHeight+dist)+'px';
+      // am Ende eine Pause, damit der letzte Punkt stehen bleibt, bevor der Bereich weiterzieht
+      hold=Math.round(window.innerHeight*.6);
+      sp.style.height=(window.innerHeight+dist+hold)+'px';
       move();
     }
     layout();
