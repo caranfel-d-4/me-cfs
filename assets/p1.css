@@ -1,6 +1,6 @@
-/* P1 c – Satzseite nach Moodboard 10.06 (#1 Kopfzeile, #2 Grotesk-Versalien, #3 Liste mit Randnotiz). Schwarzweiß. */
-@font-face{font-family:"Inter Tight";src:url(../assets/fonts/inter-tight-400.woff2) format("woff2");font-weight:400;font-display:swap}
-@font-face{font-family:"Inter Tight";src:url(../assets/fonts/inter-tight-700.woff2) format("woff2");font-weight:700;font-display:swap}
+/* P1 – gemeinsame Satzseite für P1 C und P1 Z nach Moodboard 10.06 (#1 Kopfzeile, #2 Grotesk-Versalien, #3 Liste mit Randnotiz). Schwarzweiß. */
+@font-face{font-family:"Inter Tight";src:url(fonts/inter-tight-400.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Inter Tight";src:url(fonts/inter-tight-700.woff2) format("woff2");font-weight:700;font-display:swap}
 
 :root{
   --paper:#FAFAF8; --ink:#1B1B1A; --mute:#6A6A67; --wire-soft:#DADAD6;

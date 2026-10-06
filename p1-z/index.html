@@ -2,16 +2,75 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="robots" content="noindex, nofollow">
   <title>WMEW P1 Z</title>
-  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="preload" href="../assets/fonts/inter-tight-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../assets/p1.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Satzglieder führen später auf ihre Kapitel; bis die gebaut sind, zeigen sie auf # -->
   <main>
-    <a class="back" href="../">← All versions</a>
-    <h1>P1 Z</h1>
-    <div class="empty">This version is not built yet.</div>
+    <div class="hero">
+      <header class="hd">
+        <div class="l"><b>WWTF</b>Vienna Science and<br>Technology Fund</div>
+        <div class="m">ME/CFS research in Vienna<br>2024–2026</div>
+        <div class="r"><a href="#">Resources</a></div>
+      </header>
+      <h1 class="sent b1">WWTF is spending<br class="m"> <a class="kw" href="#">€3.1 million</a><br class="d"> <a class="kw" href="#">on ME/CFS</a><br class="m"> <a class="kw" href="#">research in Vienna</a><br> <a class="kw" href="#">starting in 2024</a>:</h1>
+    </div>
+
+    <section class="hs-sp" aria-label="What the money goes to">
+      <div class="hs-pin">
+        <div class="hs-run" aria-hidden="true"><span>WWTF is spending €3.1 million on ME/CFS research in Vienna starting in 2024:</span><span class="c">1 / 4</span></div>
+        <div class="hs-view">
+          <ol class="hs-track">
+            <li class="hs-it"><span class="lb">Call 2024 · €695,445 · since 01/2025</span><h2 class="hl"><span class="big">7</span><span><a class="kw" href="#">exploratory projects</a></span></h2><p class="tx">Seven projects from the Call 2024 started in January 2025, €695,445 in total.</p></li>
+            <li class="hs-it"><span class="lb">€200,000 · first phase until 2027</span><h2 class="hl"><span class="big">1</span><span><a class="kw" href="#">biobank</a></span></h2><p class="tx">A biobank for ME/CFS research, funded with €200,000. Its first phase runs until 2027.</p></li>
+            <li class="hs-it"><span class="lb">€233,000 · since 05/2026</span><h2 class="hl"><span class="big">6</span><span><a class="kw" href="#">fellowships</a></span></h2><p class="tx">Six fellows started in May 2026, €233,000 in total.</p></li>
+            <li class="hs-it"><span class="lb">€2 million · decision 10/2026</span><h2 class="hl"><span class="big">1</span><span><a class="kw" href="#">call to consolidate what worked</a></span></h2><p class="tx">The Consolidation Call builds on what worked. €2 million, decided in October 2026.</p></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <div class="b3">
+      <p class="sent"><span class="g"><a class="kw" href="#">reviewed together <span class="g">with patients.</span></a></span> <span class="g"><a class="kw" href="#">It is a beginning.</a></span></p>
+    </div>
   </main>
+
+  <footer class="foot">
+    <div class="links"><span>Funded by WWTF, co-funded by the WE&amp;ME Foundation</span></div>
+    <div class="links"><a class="res" href="#">Resources</a><span>Imprint</span><span>Privacy</span><span>Accessibility</span><a href="../">All versions</a></div>
+  </footer>
+
+  <script>
+  // Senkrechtes Scrollen schiebt die Punkte waagrecht durch; keine Eingriffe ins Mausrad
+  (function(){
+    var root=document.documentElement, sp=document.querySelector('.hs-sp'),
+        view=sp.querySelector('.hs-view'), tr=sp.querySelector('.hs-track'), c=sp.querySelector('.hs-run .c'),
+        rm=window.matchMedia('(prefers-reduced-motion: reduce)'), dist=0;
+    function move(){
+      if(rm.matches) return;
+      var H=window.innerHeight, top=sp.getBoundingClientRect().top;
+      var p=Math.min(1,Math.max(0,-top/Math.max(1,sp.offsetHeight-H)));
+      tr.style.transform='translateX('+(-p*dist)+'px)';
+      c.textContent=Math.min(4,1+Math.floor(p*4*.999+.15))+' / 4';
+    }
+    function layout(){
+      root.classList.toggle('rm',rm.matches);
+      if(rm.matches){sp.style.height='';return;}
+      dist=Math.max(0,tr.scrollWidth-view.clientWidth);
+      sp.style.height=(window.innerHeight+dist)+'px';
+      move();
+    }
+    layout();
+    window.addEventListener('scroll',move,{passive:true});
+    window.addEventListener('resize',layout);
+    if(rm.addEventListener) rm.addEventListener('change',layout);
+    if(document.fonts&&document.fonts.ready) document.fonts.ready.then(layout);
+  })();
+  </script>
 </body>
 </html>
