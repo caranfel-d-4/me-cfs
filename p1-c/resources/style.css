@@ -1,8 +1,5 @@
 /* P1 C Ressourcen nach B9: nummerierte Liste mit Strichen wie Bild 10 (Burgtheater), Themen als Gruppen. Schwarzweiß, Pfeil B mit Hover Dunkelblau */
-@font-face{font-family:"IBM Plex Mono";src:url(../../assets/fonts/ibm-plex-mono-400.woff2) format("woff2");font-weight:400;font-display:swap}
-@font-face{font-family:"IBM Plex Sans";src:url(../../assets/fonts/ibm-plex-sans-400.woff2) format("woff2");font-weight:400;font-display:swap}
-
-:root{--mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;--sans:"IBM Plex Sans",system-ui,sans-serif;--navy:#005b94}
+:root{--navy:#005b94}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--navy:#80cee6}}
 :root[data-theme="dark"]{--navy:#80cee6}
 
@@ -22,18 +19,18 @@
 
 /* Themenüberschrift mit Anzahl, stärkerer Strich */
 .grp{padding:0 var(--pad)}
-.gh{display:flex;justify-content:space-between;margin:0;font-family:var(--mono);font-weight:400;font-size:max(9.5px,calc(9.5*var(--u)));letter-spacing:.06em;text-transform:uppercase;color:var(--mute);padding:calc(18*var(--u)) 0 4px;border-bottom:1.5px solid var(--ink)}
+.gh{display:flex;justify-content:space-between;margin:0;font-weight:400;font-size:max(9.5px,calc(9.5*var(--u)));letter-spacing:.03em;text-transform:uppercase;color:var(--mute);padding:calc(18*var(--u)) 0 4px;border-bottom:1.5px solid var(--ink)}
 @media (min-width:900px){.gh{font-size:max(11px,calc(12*var(--u)));padding-top:calc(26*var(--u))}}
 
 /* Zeile: Nummer, Titel, Beschreibung, Format · Sprache, Strich darunter */
 .rl{list-style:none;margin:0;padding:0}
 .ri{display:grid;grid-template-columns:calc(26*var(--u)) 1fr;column-gap:calc(6*var(--u));row-gap:3px;padding:calc(8*var(--u)) 0 calc(9*var(--u));border-bottom:1px solid var(--ink)}
-.ri .n{font-family:var(--sans);font-size:max(11.5px,calc(11.5*var(--u)));line-height:1.35;font-variant-numeric:tabular-nums}
+.ri .n{font-size:max(11.5px,calc(11.5*var(--u)));line-height:1.35;font-variant-numeric:tabular-nums}
 .ri .t{text-transform:uppercase;letter-spacing:-.015em;line-height:1.05;font-size:calc(15*var(--u));text-decoration:none;
   background-image:linear-gradient(currentColor,currentColor);background-repeat:no-repeat;background-position:0 96%;background-size:0% 1px;transition:background-size .4s ease}
 .ri .t:hover,.ri .t:focus-visible{background-size:100% 1px}
-.ri .d{grid-column:2;font-family:var(--sans);font-size:max(11.5px,calc(11.5*var(--u)));line-height:1.35}
-.ri .m{grid-column:2;font-family:var(--mono);font-size:max(9px,calc(9*var(--u)));color:var(--mute)}
+.ri .d{grid-column:2;font-size:max(11.5px,calc(11.5*var(--u)));line-height:1.35}
+.ri .m{grid-column:2;font-size:max(9.5px,calc(9.5*var(--u)));text-transform:uppercase;letter-spacing:.03em;color:var(--mute)}
 .ri .go{display:none}
 @media (min-width:900px){
   .ri{grid-template-columns:calc(48*var(--u)) 5fr 4fr calc(170*var(--u)) calc(20*var(--u));column-gap:calc(18*var(--u));align-items:baseline}
@@ -50,5 +47,4 @@
 .ri:hover .go{color:var(--navy)}
 
 @media (prefers-reduced-motion: reduce){.bk,.ri .t{transition:none}}
-/* Zahlen in der Fließtextschrift (Plex Sans), damit die Null leer bleibt statt mit Punkt wie in Plex Mono */
-.gh .c{font-family:var(--sans);font-variant-numeric:tabular-nums;letter-spacing:0}
+.gh .c{font-variant-numeric:tabular-nums}

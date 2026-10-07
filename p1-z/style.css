@@ -1,7 +1,4 @@
 /* P1 Z – die vier Punkte laufen beim Scrollen seitlich durch (#5, Folie 2). Baut auf ../assets/p1.css auf. */
-@font-face{font-family:"IBM Plex Mono";src:url(../assets/fonts/ibm-plex-mono-400.woff2) format("woff2");font-weight:400;font-display:swap}
-@font-face{font-family:"IBM Plex Sans";src:url(../assets/fonts/ibm-plex-sans-400.woff2) format("woff2");font-weight:400;font-display:swap}
-:root{--mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;--sans:"IBM Plex Sans",system-ui,sans-serif}
 
 .hero{padding-bottom:calc(.3*var(--fs))}
 
@@ -12,10 +9,10 @@
 .hs-view{position:relative;flex:1;min-height:0;overflow:hidden}
 .hs-track{position:absolute;top:0;bottom:0;left:0;display:flex;gap:calc(26*var(--u));margin:0;padding:0 var(--pad);list-style:none;will-change:transform}
 .hs-it{flex:0 0 calc(300*var(--u));display:flex;flex-direction:column;padding:calc(120*var(--u)) 0 calc(44*var(--u))}
-.hs-it .lb{font-family:var(--mono);font-size:max(9.5px,calc(9.5*var(--u)));color:var(--mute);margin-bottom:10px}
+.hs-it .lb{font-size:max(9.5px,calc(9.5*var(--u)));text-transform:uppercase;letter-spacing:.03em;line-height:1.25;color:var(--mute);margin-bottom:10px}
 .hs-it .hl{display:grid;grid-template-columns:auto 1fr;column-gap:.28em;align-items:start;margin:0;font-size:var(--fs);font-weight:400;line-height:1.02;letter-spacing:-.022em;text-transform:uppercase}
 .hs-it .big{font-size:2.3em;line-height:.8;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
-.hs-it .tx{margin:auto 0 0;max-width:calc(250*var(--u));font-family:var(--sans);font-size:max(11.5px,calc(11.5*var(--u)));line-height:1.4}
+.hs-it .tx{margin:auto 0 0;max-width:calc(250*var(--u));font-size:max(11.5px,calc(11.5*var(--u)));line-height:1.4}
 
 @media (min-width:900px){
   .hs-run{padding-top:calc(22*var(--u));font-size:max(11px,calc(11*var(--u)))}

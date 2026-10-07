@@ -8,12 +8,14 @@
   <link rel="preload" href="../assets/fonts/inter-tight-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="../assets/p1.css">
   <style>
-    /* A2 (Entwurf b): Satz bündig, „on ME/CFS“ als eigener Absatz, Aufzählung Glied für Glied. Schrift und Ränder wie P1 C (A3), ohne Kopfzeile und ohne Absatzabstände. */
+    /* A2 (Entwurf b): Satz bündig, „on ME/CFS“ als eigener Absatz, Aufzählung Glied für Glied. Schrift und Ränder wie P1 C (A3), ohne Kopfzeile; Abstand nur um die vier Punkte. */
     /* Der ganze Satz füllt den ersten Bildschirm: Schriftgröße wird per Skript eingepasst, ohne Skript gilt --fs */
     .stage{height:100vh;height:100svh;padding:var(--pad);overflow:hidden}
     @media (min-width:900px){.stage{padding-block:calc(40*var(--u))}}
     .sent .blk{display:block}
     .sent .ln{display:block}
+    /* nur die vier Punkte haben Abstand nach oben und unten */
+    .sent .list4{margin:.6em 0}
     .sent .u{white-space:nowrap}
     .sent .mb{display:inline}
     @media (min-width:900px){.sent .mb{display:none}}
@@ -26,15 +28,15 @@
     <div class="stage">
       <h1 class="sent">
         <span class="blk"><span class="u">WWTF is spending</span><br class="mb"> <span class="u"><a class="kw" href="#">€3.1 million</a><sup class="n">1</sup></span></span>
-        <span class="blk"><span class="u">on <a class="kw" href="#">ME/CFS</a><sup class="n">2</sup></span></span>
-        <span class="blk"><span class="u"><a class="kw" href="#">research in Vienna</a><sup class="n">3</sup></span> <span class="u"><a class="kw" href="#">starting in 2024</a><sup class="n">4</sup>:</span></span>
-        <span class="blk">
+        <span class="blk"><span class="u">on <a class="kw" href="#">ME/CFS</a><sup class="n">2</sup></span><br class="mb"> <span class="u"><a class="kw" href="#">research in Vienna</a><sup class="n">3</sup></span></span>
+        <span class="blk"><span class="u"><a class="kw" href="#">starting in 2024</a><sup class="n">4</sup>:</span></span>
+        <span class="blk list4">
           <span class="ln"><span class="u"><a class="kw" href="#">7 exploratory<br class="mb"> projects</a><sup class="n">5</sup></span></span>
           <span class="ln"><span class="u"><a class="kw" href="#">1 biobank</a><sup class="n">6</sup></span></span>
           <span class="ln"><span class="u"><a class="kw" href="#">6 fellowships</a><sup class="n">7</sup></span></span>
           <span class="ln"><span class="u"><a class="kw" href="#">1 call to consolidate<br class="mb"> what worked</a><sup class="n">8</sup></span></span>
-          <span class="ln"><span class="u"><a class="kw" href="#">reviewed together<br class="mb"> with patients</a><sup class="n">9</sup>.</span></span>
         </span>
+        <span class="blk"><span class="u"><a class="kw" href="#">reviewed together<br class="mb"> with patients</a><sup class="n">9</sup>.</span></span>
         <span class="blk"><span class="u"><a class="kw" href="#">It is a beginning.</a><sup class="n">10</sup></span></span>
       </h1>
     </div>
