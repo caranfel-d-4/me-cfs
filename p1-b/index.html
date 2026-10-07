@@ -26,18 +26,18 @@
     /* Computer: jeder Punkt der Aufzählung bleibt auf einer Zeile */
     @media (min-width:900px){.stage .it{grid-template-columns:.78em minmax(0,1fr) calc(170*var(--u))}.stage .it .t{white-space:nowrap}}
     @media (min-width:900px){
-      /* nach ihren Notizen 07.10.: links die ersten vier Satzglieder, rechts oben „starting in 2024:“ und darunter die Tabelle,
+      /* nach ihren Notizen 07.10.: links „€3.1 million / has been put / to work for / research / in Vienna / on ME/CFS“, rechts oben „starting in 2024:“ und darunter die Tabelle,
          die Tabelle beginnt bei etwa 40 % der Breite; unten über die ganze Breite „reviewed together with patients.“ */
       .stage{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,8fr);grid-template-rows:auto auto 1fr;column-gap:calc(48*var(--u));padding-inline:var(--pad)}
       .stage .sent.b1{display:contents}
       .stage .s1{grid-column:1;grid-row:1/3;display:block}
-      .stage .s1 br{display:inline}
+      .stage .s1 br.d{display:inline}
       .stage .s2{grid-column:2;grid-row:1;display:block;white-space:nowrap}
-      .stage .list{grid-column:2;grid-row:2;align-self:start;padding:0;font-size:calc(.85*var(--fs));margin-top:calc(.2*var(--fs))}
+      .stage .list{grid-column:2;grid-row:2;align-self:start;padding:0;font-size:calc(.85*var(--fs));margin-top:calc(.7*var(--fs))}
       /* Tabelle: Randnotiz unter dem Punkt, damit die Zeilen Platz haben */
       .stage .it{grid-template-columns:.78em minmax(0,1fr);align-items:start}
       .stage .it .t{white-space:normal}
-      .stage .it .a{grid-column:2;text-align:left;padding:4px 0 0}
+      .stage .it .a{grid-column:2;text-align:left;padding:4px 0 0;font-size:max(11px,calc(.2*var(--fs)))}
       .stage .b3{grid-column:1/3;grid-row:3;align-self:end;padding:calc(.55*var(--fs)) 0 0}
       .stage .b3 .g .g{display:inline}
     }
@@ -73,7 +73,7 @@
   <!-- Satzglieder führen später auf ihre Kapitel; bis die gebaut sind, zeigen sie auf # -->
   <main>
     <div class="stage">
-      <h1 class="sent b1"><span class="s1">WWTF is spending<br class="m"> <a class="kw" href="#">€3.1 million</a><br class="d"> <a class="kw" href="#">on ME/CFS</a><br class="m"> <a class="kw" href="#">research in Vienna</a><br></span> <span class="s2"><a class="kw" href="#">starting in 2024</a>:</span></h1>
+      <h1 class="sent b1"><span class="s1"><a class="kw" href="#">€3.1 million</a><br class="d"> has been put<br class="d"> to work for<br class="d"> <a class="kw" href="#">research<br class="d"> in Vienna</a><br class="d"> <a class="kw" href="#">on ME/CFS</a><br></span> <span class="s2"><a class="kw" href="#">starting in 2024</a>:</span></h1>
 
     <ol class="list" aria-label="What the money goes to">
       <li class="it"><span class="n">7</span><span class="t"><a class="kw" href="#">exploratory projects</a></span><span class="a">Call&nbsp;2024 · €695,445 · since&nbsp;01/2025</span></li>
