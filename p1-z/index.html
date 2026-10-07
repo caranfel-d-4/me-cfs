@@ -61,7 +61,14 @@
     function layout(){
       root.classList.toggle('rm',rm.matches);
       if(rm.matches){sp.style.height='';return;}
-      dist=Math.max(0,tr.scrollWidth-view.clientWidth);
+      // Weg bis dort, wo der Text des letzten Punkts wirklich endet, plus derselbe Rand wie links.
+      // Am Text gemessen, weil scrollWidth den rechten Innenabstand nicht in jedem Browser mitzählt
+      var rg=document.createRange(), x0=tr.getBoundingClientRect().left, end=0;
+      tr.querySelectorAll('.hs-it').forEach(function(it){
+        rg.selectNodeContents(it);
+        end=Math.max(end,rg.getBoundingClientRect().right-x0,it.getBoundingClientRect().right-x0);
+      });
+      dist=Math.max(0,end+parseFloat(getComputedStyle(tr).paddingLeft)-view.clientWidth);
       // am Ende eine Pause, damit der letzte Punkt stehen bleibt, bevor der Bereich weiterzieht
       hold=Math.round(window.innerHeight*.6);
       sp.style.height=(window.innerHeight+dist+hold)+'px';
