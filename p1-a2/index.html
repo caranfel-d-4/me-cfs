@@ -15,6 +15,11 @@
     .stage .sent.b1{padding:0 var(--pad) calc(.9*var(--fs))}
     /* engerer Zeilenabstand als P1 C (1.44), dadurch wird die eingepasste Schrift größer */
     .stage .sent{line-height:1.18}
+    /* Laufweite eine Spur weiter als P1 C (-.022em) */
+    .stage .sent,.stage .it .n,.stage .it .t{letter-spacing:-.008em}
+    /* Handy: „call to consolidate / what worked“ bricht nur an dieser Stelle */
+    .stage .nw{white-space:nowrap}
+    .stage .it{grid-template-columns:.78em minmax(0,1fr)}
     /* Computer: jeder Punkt der Aufzählung bleibt auf einer Zeile */
     @media (min-width:900px){.stage .it{grid-template-columns:.78em minmax(0,1fr) calc(230*var(--u))}.stage .it .t{white-space:nowrap}}
     /* Vorspann beim Laden: Ladezeichen C (feine Linie) und ein Hinweis, danach erscheint der Satz */
@@ -55,7 +60,7 @@
       <li class="it"><span class="n">7</span><span class="t"><a class="kw" href="#">exploratory projects</a></span><span class="a">Call 2024 · €695,445 · since 01/2025</span></li>
       <li class="it"><span class="n">1</span><span class="t"><a class="kw" href="#">biobank</a></span><span class="a">€200,000 · first phase until 2027</span></li>
       <li class="it"><span class="n">6</span><span class="t"><a class="kw" href="#">fellowships</a></span><span class="a">€233,000 · since 05/2026</span></li>
-      <li class="it"><span class="n">1</span><span class="t"><a class="kw" href="#">call to consolidate what worked</a></span><span class="a">€2 million · decision 10/2026</span></li>
+      <li class="it"><span class="n">1</span><span class="t"><a class="kw" href="#"><span class="nw">call to consolidate</span> <span class="nw">what worked</span></a></span><span class="a">€2 million · decision 10/2026</span></li>
     </ol>
 
     <div class="b3">
