@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex, nofollow">
+  <title>WMEW P1 A</title>
+  <link rel="preload" href="../assets/fonts/inter-tight-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../assets/p1.css">
+  <style>
+    /* P1 A neu (07.10.): P1 B ohne Kopfzeile, Satz oben statt ab halber Höhe; der ganze Satz samt Aufzählung passt auf den ersten Bildschirm */
+    /* Schriftgröße --fs wird per Skript eingepasst, ohne Skript gilt der Wert aus p1.css */
+    .stage{height:100vh;height:100svh;padding-block:var(--pad);overflow:hidden}
+    @media (min-width:900px){.stage{padding-block:calc(28*var(--u))}}
+    .stage .sent.b1{padding:0 var(--pad) calc(.55*var(--fs))}
+    /* kleinere Abstände um die Aufzählung und schmälere Randnotizspalte, damit die Schrift größer werden kann */
+    .stage .b3{padding-top:calc(.55*var(--fs))}
+    /* engerer Zeilenabstand als P1 B (1.44), dadurch wird die eingepasste Schrift größer */
+    .stage .sent{line-height:1.18}
+    /* Laufweite eine Spur weiter als P1 B (-.022em) */
+    .stage .sent,.stage .it .n,.stage .it .t{letter-spacing:-.008em}
+    /* Handy: „call to consolidate / what worked“ bricht nur an dieser Stelle */
+    .stage .nw{white-space:nowrap}
+    .stage .it{grid-template-columns:.78em minmax(0,1fr)}
+    /* Computer: jeder Punkt der Aufzählung bleibt auf einer Zeile */
+    @media (min-width:900px){.stage .it{grid-template-columns:.78em minmax(0,1fr) calc(170*var(--u))}.stage .it .t{white-space:nowrap}}
+    /* Vorspann beim Laden: Ladezeichen C (feine Linie) und ein Hinweis, danach erscheint der Satz */
+    .intro{display:none}
+    .js .intro{display:flex;position:fixed;inset:0;z-index:10;background:var(--paper);flex-direction:column;align-items:center;justify-content:center;gap:28px;padding:var(--pad);text-align:center;transition:opacity .45s ease}
+    .js .intro.out{opacity:0;pointer-events:none}
+    .intro .hint{margin:0;width:100%;max-width:22em;font-size:max(15px,calc(18*var(--u)));line-height:1.35;text-transform:uppercase;letter-spacing:.03em}
+    .intro .hint .tch{display:none}
+    @media (hover:none){.intro .hint .tch{display:inline}.intro .hint .ptr{display:none}}
+    .intro .ld{display:flex;flex-direction:column;align-items:center;gap:20px}
+    .intro .ld span{font-size:12px;letter-spacing:.03em;text-transform:uppercase;color:var(--mute)}
+    .intro svg{--track:#e7e7e6;--lead:#005b94}
+    @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .intro svg{--track:#353533;--lead:#80cee6}}
+    /* Ladezeichen C füllt sich einmal von links nach rechts und bleibt voll stehen */
+    @keyframes wm-fill{from{stroke-dashoffset:160}to{stroke-dashoffset:0}}
+    .intro .seg{animation:wm-fill 2s cubic-bezier(.4,0,.2,1) 1 forwards}
+    @media (prefers-reduced-motion:reduce){.intro .seg{animation:none;stroke-dashoffset:0}.js .intro{transition:none}}
+  </style>
+  <script>document.documentElement.classList.add("js")</script>
+</head>
+<body>
+  <div class="intro" role="status">
+    <p class="hint"><span class="ptr">Click</span><span class="tch">Tap</span> any part of the sentence for more details.</p>
+    <div class="ld">
+      <svg width="164" height="8" viewBox="0 0 164 8" fill="none" stroke-linecap="round" aria-hidden="true">
+        <path d="M2 4h160" stroke="var(--track)" stroke-width="1.35"/>
+        <path class="seg" d="M2 4h160" stroke="var(--lead)" stroke-width="1.35" stroke-dasharray="160 160" stroke-dashoffset="160"/>
+      </svg>
+      <span>Loading</span>
+    </div>
+  </div>
+  <!-- Satzglieder führen später auf ihre Kapitel; bis die gebaut sind, zeigen sie auf # -->
+  <main>
+    <div class="stage">
+      <h1 class="sent b1">WWTF is spending<br class="m"> <a class="kw" href="#">€3.1 million</a><br class="d"> <a class="kw" href="#">on ME/CFS</a><br class="m"> <a class="kw" href="#">research in Vienna</a><br> <a class="kw" href="#">starting in 2024</a>:</h1>
+
+    <ol class="list" aria-label="What the money goes to">
+      <li class="it"><span class="n">7</span><span class="t"><a class="kw" href="#">exploratory projects</a></span><span class="a">Call&nbsp;2024 · €695,445 · since&nbsp;01/2025</span></li>
+      <li class="it"><span class="n">1</span><span class="t"><a class="kw" href="#">biobank</a></span><span class="a">€200,000 · first&nbsp;phase&nbsp;until&nbsp;2027</span></li>
+      <li class="it"><span class="n">6</span><span class="t"><a class="kw" href="#">fellowships</a></span><span class="a">€233,000 · since&nbsp;05/2026</span></li>
+      <li class="it"><span class="n">1</span><span class="t"><a class="kw" href="#"><span class="nw">call to consolidate</span> <span class="nw">what worked</span></a></span><span class="a">€2&nbsp;million · decision&nbsp;10/2026</span></li>
+    </ol>
+
+    <div class="b3">
+      <p class="sent"><span class="g"><a class="kw" href="#">reviewed together <span class="g">with patients.</span></a></span> <span class="g"><a class="kw" href="#">It is a beginning.</a></span></p>
+    </div>
+    </div>
+  </main>
+
+  <footer class="foot">
+    <div class="links"><span>Funded by WWTF, co-funded by the WE&amp;ME Foundation</span></div>
+    <div class="links"><a class="res" href="../p1-b/resources/?from=p1-a">Resources</a><span>Imprint</span><span>Privacy</span><span>Accessibility</span><a href="../">All versions</a></div>
+  </footer>
+  <script>
+    // Größte Schrift, bei der Satz und Aufzählung in Breite und Höhe in den ersten Bildschirm passen
+    (function(){
+      var st=document.querySelector('.stage');
+      var ts=st.querySelectorAll('.it .t');
+      function fits(){if(st.scrollHeight>st.clientHeight+.5||st.scrollWidth>st.clientWidth+.5)return false;for(var i=0;i<ts.length;i++)if(ts[i].scrollWidth>ts[i].clientWidth+.5)return false;return true;}
+      function fit(){var lo=8,hi=200;for(var i=0;i<16;i++){var m=(lo+hi)/2;st.style.setProperty('--fs',m+'px');if(fits())lo=m;else hi=m;}st.style.setProperty('--fs',Math.floor(lo*10)/10+'px');}
+      fit();
+      if(document.fonts)document.fonts.ready.then(fit);
+      var t;addEventListener('resize',function(){clearTimeout(t);t=setTimeout(fit,60);});
+    })();
+  </script>
+  <script>
+    // Vorspann: bis die Linie voll ist (2 s) und noch kurz Zeit zum Lesen, dann ausblenden; Klick oder Taste überspringt
+    (function(){
+      var el=document.querySelector('.intro'), done=false;
+      function hide(){if(done)return;done=true;el.classList.add('out');setTimeout(function(){el.remove();},500);}
+      var minWait=new Promise(function(r){setTimeout(r,2600);});
+      var fonts=document.fonts?document.fonts.ready:Promise.resolve();
+      Promise.all([minWait,fonts]).then(hide);
+      setTimeout(hide,6000);
+      el.addEventListener('click',hide);
+      addEventListener('keydown',hide,{once:true});
+    })();
+  </script>
+</body>
+</html>

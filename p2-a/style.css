@@ -1,4 +1,4 @@
-/* P3 C1 nach „Moodboard p3“ (07.10.): Kopfzeile nur Text (Mouthwash), Überschrift über die ganze Breite mit Linie (Louis Reith, Mouthwash),
+/* P2 A nach „Moodboard p3“ (07.10.): Kopfzeile nur Text (Mouthwash), Überschrift über die ganze Breite mit Linie (Louis Reith, Mouthwash),
    Satz groß und eingerückt (Affleck House), drei verlinkte Texte ohne Bilder (Mouthwash). Darunter der Zeitstrahl 2024–2026, nur Forschung. Schwarzweiß. */
 :root{--sage:#5F7F63;--wire:#B4B4B0;--px:16px}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--sage:#9DBA9F;--wire:#5A5A57}}

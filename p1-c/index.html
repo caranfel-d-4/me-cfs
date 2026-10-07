@@ -7,115 +7,79 @@
   <title>WMEW P1 C</title>
   <link rel="preload" href="../assets/fonts/inter-tight-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="../assets/p1.css">
-  <style>
-    /* P1 C neu (07.10.): wie P1 A2 (ohne Kopfzeile, auf den ersten Bildschirm eingepasst), am Computer zweispaltig nach ihrer Vorlage:
-       links oben der erste Satzteil groß, rechts die Tabelle mit den Zahlen, links unten der Schluss groß */
-    /* Schriftgröße --fs wird per Skript eingepasst, ohne Skript gilt der Wert aus p1.css */
-    .stage{height:100vh;height:100svh;padding-block:var(--pad);overflow:hidden}
-    @media (min-width:900px){.stage{padding-block:calc(28*var(--u))}}
-    .stage .sent.b1{padding:0 var(--pad) calc(.55*var(--fs))}
-    /* kleinere Abstände um die Aufzählung und schmälere Randnotizspalte, damit die Schrift größer werden kann */
-    .stage .b3{padding-top:calc(.55*var(--fs))}
-    /* engerer Zeilenabstand als P1 C (1.44), dadurch wird die eingepasste Schrift größer */
-    .stage .sent{line-height:1.18}
-    /* Laufweite eine Spur weiter als P1 C (-.022em) */
-    .stage .sent,.stage .it .n,.stage .it .t{letter-spacing:-.008em}
-    /* Handy: „call to consolidate / what worked“ bricht nur an dieser Stelle */
-    .stage .nw{white-space:nowrap}
-    .stage .it{grid-template-columns:.78em minmax(0,1fr)}
-    /* Computer: jeder Punkt der Aufzählung bleibt auf einer Zeile */
-    @media (min-width:900px){.stage .it{grid-template-columns:.78em minmax(0,1fr) calc(170*var(--u))}.stage .it .t{white-space:nowrap}}
-    @media (min-width:900px){
-      /* nach ihren Notizen 07.10.: links die ersten vier Satzglieder, rechts oben „starting in 2024:“ und darunter die Tabelle,
-         die Tabelle beginnt bei etwa 40 % der Breite; unten über die ganze Breite „reviewed together with patients.“ */
-      .stage{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,8fr);grid-template-rows:auto auto 1fr;column-gap:calc(48*var(--u));padding-inline:var(--pad)}
-      .stage .sent.b1{display:contents}
-      .stage .s1{grid-column:1;grid-row:1/3;display:block}
-      .stage .s1 br{display:inline}
-      .stage .s2{grid-column:2;grid-row:1;display:block;white-space:nowrap}
-      .stage .list{grid-column:2;grid-row:2;align-self:start;padding:0;font-size:calc(.85*var(--fs));margin-top:calc(.2*var(--fs))}
-      /* Tabelle: Randnotiz unter dem Punkt, damit die Zeilen Platz haben */
-      .stage .it{grid-template-columns:.78em minmax(0,1fr);align-items:start}
-      .stage .it .t{white-space:normal}
-      .stage .it .a{grid-column:2;text-align:left;padding:4px 0 0}
-      .stage .b3{grid-column:1/3;grid-row:3;align-self:end;padding:calc(.55*var(--fs)) 0 0}
-      .stage .b3 .g .g{display:inline}
-    }
-    /* Vorspann beim Laden: Ladezeichen C (feine Linie) und ein Hinweis, danach erscheint der Satz */
-    .intro{display:none}
-    .js .intro{display:flex;position:fixed;inset:0;z-index:10;background:var(--paper);flex-direction:column;align-items:center;justify-content:center;gap:28px;padding:var(--pad);text-align:center;transition:opacity .45s ease}
-    .js .intro.out{opacity:0;pointer-events:none}
-    .intro .hint{margin:0;width:100%;max-width:22em;font-size:max(15px,calc(18*var(--u)));line-height:1.35;text-transform:uppercase;letter-spacing:.03em}
-    .intro .hint .tch{display:none}
-    @media (hover:none){.intro .hint .tch{display:inline}.intro .hint .ptr{display:none}}
-    .intro .ld{display:flex;flex-direction:column;align-items:center;gap:20px}
-    .intro .ld span{font-size:12px;letter-spacing:.03em;text-transform:uppercase;color:var(--mute)}
-    .intro svg{--track:#e7e7e6;--lead:#005b94}
-    @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .intro svg{--track:#353533;--lead:#80cee6}}
-    /* Ladezeichen C füllt sich einmal von links nach rechts und bleibt voll stehen */
-    @keyframes wm-fill{from{stroke-dashoffset:160}to{stroke-dashoffset:0}}
-    .intro .seg{animation:wm-fill 2s cubic-bezier(.4,0,.2,1) 1 forwards}
-    @media (prefers-reduced-motion:reduce){.intro .seg{animation:none;stroke-dashoffset:0}.js .intro{transition:none}}
-  </style>
-  <script>document.documentElement.classList.add("js")</script>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="intro" role="status">
-    <p class="hint"><span class="ptr">Click</span><span class="tch">Tap</span> any part of the sentence for more details.</p>
-    <div class="ld">
-      <svg width="164" height="8" viewBox="0 0 164 8" fill="none" stroke-linecap="round" aria-hidden="true">
-        <path d="M2 4h160" stroke="var(--track)" stroke-width="1.35"/>
-        <path class="seg" d="M2 4h160" stroke="var(--lead)" stroke-width="1.35" stroke-dasharray="160 160" stroke-dashoffset="160"/>
-      </svg>
-      <span>Loading</span>
-    </div>
-  </div>
   <!-- Satzglieder führen später auf ihre Kapitel; bis die gebaut sind, zeigen sie auf # -->
   <main>
-    <div class="stage">
-      <h1 class="sent b1"><span class="s1">WWTF is spending<br class="m"> <a class="kw" href="#">€3.1 million</a><br class="d"> <a class="kw" href="#">on ME/CFS</a><br class="m"> <a class="kw" href="#">research in Vienna</a><br></span> <span class="s2"><a class="kw" href="#">starting in 2024</a>:</span></h1>
+    <div class="hero">
+      <header class="hd">
+        <div class="l"><b>WWTF</b>Vienna Science and<br>Technology Fund</div>
+        <div class="m">ME/CFS research in Vienna<br>2024–2026</div>
+        <div class="r"><a href="#">Resources</a></div>
+      </header>
+      <h1 class="sent b1">WWTF is spending<br class="m"> <a class="kw" href="#">€3.1 million</a><br class="d"> <a class="kw" href="#">on ME/CFS</a><br class="m"> <a class="kw" href="#">research in Vienna</a><br> <a class="kw" href="#">starting in 2024</a>:</h1>
+    </div>
 
-    <ol class="list" aria-label="What the money goes to">
-      <li class="it"><span class="n">7</span><span class="t"><a class="kw" href="#">exploratory projects</a></span><span class="a">Call&nbsp;2024 · €695,445 · since&nbsp;01/2025</span></li>
-      <li class="it"><span class="n">1</span><span class="t"><a class="kw" href="#">biobank</a></span><span class="a">€200,000 · first&nbsp;phase&nbsp;until&nbsp;2027</span></li>
-      <li class="it"><span class="n">6</span><span class="t"><a class="kw" href="#">fellowships</a></span><span class="a">€233,000 · since&nbsp;05/2026</span></li>
-      <li class="it"><span class="n">1</span><span class="t"><a class="kw" href="#"><span class="nw">call to consolidate</span> <span class="nw">what worked</span></a></span><span class="a">€2&nbsp;million · decision&nbsp;10/2026</span></li>
-    </ol>
+    <section class="hs-sp" aria-label="What the money goes to">
+      <div class="hs-pin">
+        <div class="hs-run" aria-hidden="true"><span>WWTF is spending €3.1 million on ME/CFS research in Vienna starting in 2024:</span><span class="c">1 / 4</span></div>
+        <div class="hs-view">
+          <ol class="hs-track">
+            <li class="hs-it"><span class="lb">Call 2024 · €695,445 · since 01/2025</span><h2 class="hl"><span class="big">7</span><span><a class="kw" href="#">exploratory projects</a></span></h2><p class="tx">Seven projects from the Call 2024 started in January 2025, €695,445 in total.</p></li>
+            <li class="hs-it"><span class="lb">€200,000 · first phase until 2027</span><h2 class="hl"><span class="big">1</span><span><a class="kw" href="#">biobank</a></span></h2><p class="tx">A biobank for ME/CFS research, funded with €200,000. Its first phase runs until 2027.</p></li>
+            <li class="hs-it"><span class="lb">€233,000 · since 05/2026</span><h2 class="hl"><span class="big">6</span><span><a class="kw" href="#">fellowships</a></span></h2><p class="tx">Six fellows started in May 2026, €233,000 in total.</p></li>
+            <li class="hs-it"><span class="lb">€2 million · decision 10/2026</span><h2 class="hl"><span class="big">1</span><span><a class="kw" href="#">call to consolidate what worked</a></span></h2><p class="tx">The Consolidation Call builds on what worked. €2 million, decided in October 2026.</p></li>
+          </ol>
+        </div>
+      </div>
+    </section>
 
     <div class="b3">
       <p class="sent"><span class="g"><a class="kw" href="#">reviewed together <span class="g">with patients.</span></a></span> <span class="g"><a class="kw" href="#">It is a beginning.</a></span></p>
-    </div>
     </div>
   </main>
 
   <footer class="foot">
     <div class="links"><span>Funded by WWTF, co-funded by the WE&amp;ME Foundation</span></div>
-    <div class="links"><a class="res" href="resources/">Resources</a><span>Imprint</span><span>Privacy</span><span>Accessibility</span><a href="../">All versions</a></div>
+    <div class="links"><a class="res" href="#">Resources</a><span>Imprint</span><span>Privacy</span><span>Accessibility</span><a href="../">All versions</a></div>
   </footer>
+
   <script>
-    // Größte Schrift, bei der Satz und Aufzählung in Breite und Höhe in den ersten Bildschirm passen
-    (function(){
-      var st=document.querySelector('.stage');
-      var ts=st.querySelectorAll('.it .t, .s1, .s2');
-      function fits(){if(st.scrollHeight>st.clientHeight+.5||st.scrollWidth>st.clientWidth+.5)return false;for(var i=0;i<ts.length;i++)if(ts[i].scrollWidth>ts[i].clientWidth+.5)return false;return true;}
-      function fit(){var lo=8,hi=200;for(var i=0;i<16;i++){var m=(lo+hi)/2;st.style.setProperty('--fs',m+'px');if(fits())lo=m;else hi=m;}st.style.setProperty('--fs',Math.floor(lo*10)/10+'px');}
-      fit();
-      if(document.fonts)document.fonts.ready.then(fit);
-      var t;addEventListener('resize',function(){clearTimeout(t);t=setTimeout(fit,60);});
-    })();
-  </script>
-  <script>
-    // Vorspann: bis die Linie voll ist (2 s) und noch kurz Zeit zum Lesen, dann ausblenden; Klick oder Taste überspringt
-    (function(){
-      var el=document.querySelector('.intro'), done=false;
-      function hide(){if(done)return;done=true;el.classList.add('out');setTimeout(function(){el.remove();},500);}
-      var minWait=new Promise(function(r){setTimeout(r,2600);});
-      var fonts=document.fonts?document.fonts.ready:Promise.resolve();
-      Promise.all([minWait,fonts]).then(hide);
-      setTimeout(hide,6000);
-      el.addEventListener('click',hide);
-      addEventListener('keydown',hide,{once:true});
-    })();
+  // Senkrechtes Scrollen schiebt die Punkte waagrecht durch; keine Eingriffe ins Mausrad
+  (function(){
+    var root=document.documentElement, sp=document.querySelector('.hs-sp'),
+        view=sp.querySelector('.hs-view'), tr=sp.querySelector('.hs-track'), c=sp.querySelector('.hs-run .c'),
+        rm=window.matchMedia('(prefers-reduced-motion: reduce)'), dist=0, hold=0;
+    function move(){
+      if(rm.matches) return;
+      var top=sp.getBoundingClientRect().top;
+      var p=Math.min(1,Math.max(0,-top/Math.max(1,dist)));
+      tr.style.transform='translateX('+(-p*dist)+'px)';
+      c.textContent=Math.min(4,1+Math.floor(p*4*.999+.15))+' / 4';
+    }
+    function layout(){
+      root.classList.toggle('rm',rm.matches);
+      if(rm.matches){sp.style.height='';return;}
+      // Weg bis dort, wo der Text des letzten Punkts wirklich endet, plus derselbe Rand wie links.
+      // Am Text gemessen, weil scrollWidth den rechten Innenabstand nicht in jedem Browser mitzählt
+      var rg=document.createRange(), x0=tr.getBoundingClientRect().left, end=0;
+      tr.querySelectorAll('.hs-it').forEach(function(it){
+        rg.selectNodeContents(it);
+        end=Math.max(end,rg.getBoundingClientRect().right-x0,it.getBoundingClientRect().right-x0);
+      });
+      dist=Math.max(0,end+parseFloat(getComputedStyle(tr).paddingLeft)-view.clientWidth);
+      // am Ende eine Pause, damit der letzte Punkt stehen bleibt, bevor der Bereich weiterzieht
+      hold=Math.round(window.innerHeight*.6);
+      sp.style.height=(window.innerHeight+dist+hold)+'px';
+      move();
+    }
+    layout();
+    window.addEventListener('scroll',move,{passive:true});
+    window.addEventListener('resize',layout);
+    if(rm.addEventListener) rm.addEventListener('change',layout);
+    if(document.fonts&&document.fonts.ready) document.fonts.ready.then(layout);
+  })();
   </script>
 </body>
 </html>
