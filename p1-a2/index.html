@@ -13,6 +13,10 @@
     .stage{height:100vh;height:100svh;padding-block:var(--pad);overflow:hidden}
     @media (min-width:900px){.stage{padding-block:calc(40*var(--u))}}
     .stage .sent.b1{padding:0 var(--pad) calc(.9*var(--fs))}
+    /* engerer Zeilenabstand als P1 C (1.44), dadurch wird die eingepasste Schrift größer */
+    .stage .sent{line-height:1.18}
+    /* Computer: jeder Punkt der Aufzählung bleibt auf einer Zeile */
+    @media (min-width:900px){.stage .it{grid-template-columns:.78em minmax(0,1fr) calc(230*var(--u))}.stage .it .t{white-space:nowrap}}
     /* Vorspann beim Laden: Ladezeichen C (feine Linie) und ein Hinweis, danach erscheint der Satz */
     .intro{display:none}
     .js .intro{display:flex;position:fixed;inset:0;z-index:10;background:var(--paper);flex-direction:column;align-items:center;justify-content:center;gap:28px;padding:var(--pad);text-align:center;transition:opacity .45s ease}
@@ -68,7 +72,8 @@
     // Größte Schrift, bei der Satz und Aufzählung in Breite und Höhe in den ersten Bildschirm passen
     (function(){
       var st=document.querySelector('.stage');
-      function fits(){return st.scrollHeight<=st.clientHeight+.5&&st.scrollWidth<=st.clientWidth+.5;}
+      var ts=st.querySelectorAll('.it .t');
+      function fits(){if(st.scrollHeight>st.clientHeight+.5||st.scrollWidth>st.clientWidth+.5)return false;for(var i=0;i<ts.length;i++)if(ts[i].scrollWidth>ts[i].clientWidth+.5)return false;return true;}
       function fit(){var lo=8,hi=200;for(var i=0;i<16;i++){var m=(lo+hi)/2;st.style.setProperty('--fs',m+'px');if(fits())lo=m;else hi=m;}st.style.setProperty('--fs',Math.floor(lo*10)/10+'px');}
       fit();
       if(document.fonts)document.fonts.ready.then(fit);
