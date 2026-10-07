@@ -43,6 +43,8 @@
     }
     /* Größenkontrast nach Moodboard-Bild 3 („Creative Brief“), aber innerhalb der festgelegten Schrift: Inter Tight Regular, gleiche Laufweite */
     .stage .big{display:inline-block;font-size:1.75em;line-height:.9;margin:.04em 0 .1em}
+    /* Handy: Abstand zwischen „ME/CFS“ und „starting in 2024:“ */
+    @media (max-width:899px){.stage .s2{display:block;margin-top:.55em}}
     /* Vorspann beim Laden: Ladezeichen C (feine Linie) und ein Hinweis, danach erscheint der Satz */
     .intro{display:none}
     .js .intro{display:flex;position:fixed;inset:0;z-index:10;background:var(--paper);flex-direction:column;align-items:center;justify-content:center;gap:28px;padding:var(--pad);text-align:center;transition:opacity .45s ease}
@@ -75,7 +77,7 @@
   <!-- Satzglieder führen später auf ihre Kapitel; bis die gebaut sind, zeigen sie auf # -->
   <main>
     <div class="stage">
-      <h1 class="sent b1"><span class="s1"><a class="kw big" href="#">€3.1<br class="d"> million</a><br> has been put<br class="d"> to work for<br class="d"> <a class="kw" href="#">research<br class="d"> in Vienna</a> on<br class="d"> <a class="kw big" href="#">ME/CFS</a><br></span> <span class="s2"><a class="kw" href="#">starting in 2024</a>:</span></h1>
+      <h1 class="sent b1"><span class="s1"><a class="kw big" href="money/">€3.1<br class="d"> million</a><br> has been put<br class="d"> to work for<br class="d"> <a class="kw" href="#">research<br class="d"> in Vienna</a> on<br class="d"> <a class="kw big" href="#">ME/CFS</a><br></span> <span class="s2"><a class="kw" href="#">starting in 2024</a>:</span></h1>
 
     <ol class="list" aria-label="What the money goes to">
       <li class="it"><span class="n">7</span><span class="t"><a class="kw" href="#">exploratory projects</a></span><span class="a">Call&nbsp;2024 · €695,445 · since&nbsp;01/2025</span></li>
