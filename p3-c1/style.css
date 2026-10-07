@@ -1,0 +1,82 @@
+/* P3 C1 nach „Moodboard p3“ (07.10.): Kopfzeile nur Text (Mouthwash), Überschrift über die ganze Breite mit Linie (Louis Reith, Mouthwash),
+   Satz groß und eingerückt (Affleck House), drei verlinkte Texte ohne Bilder (Mouthwash). Darunter der Zeitstrahl 2024–2026, nur Forschung. Schwarzweiß. */
+:root{--sage:#5F7F63;--wire:#B4B4B0;--px:16px}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--sage:#9DBA9F;--wire:#5A5A57}}
+:root[data-theme="dark"]{--sage:#9DBA9F;--wire:#5A5A57}
+@media (min-width:900px){:root{--px:calc(40*var(--u))}}
+
+/* Erster Bildschirm */
+.st{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;padding:34px var(--px) 16px}
+.st-nav{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-size:max(12px,calc(12*var(--u)))}
+.st-nav b{font-weight:700;letter-spacing:.02em}
+.st-nav .m{display:none}
+.st-nav a{text-decoration:none}
+.st-nav a:hover{text-decoration:underline;text-underline-offset:2px}
+.h1{margin:4px 0 0;font-weight:400;text-transform:uppercase;letter-spacing:-.035em;line-height:.86;white-space:nowrap;font-size:calc(52*var(--u))}
+.rule{border:0;border-top:1.3px solid var(--ink);margin:6px 0 0}
+.sub{margin:10px 0 0;font-weight:400;font-size:calc(21*var(--u));line-height:1.12;letter-spacing:-.015em;text-indent:22%}
+.three{list-style:none;margin:28px 0 0;padding:0;display:flex;flex-direction:column}
+.three li{border-top:1px solid var(--ink);padding:8px 0 12px}
+.three a{display:flex;flex-direction:column;gap:6px;text-decoration:none}
+.three .t{text-transform:uppercase;letter-spacing:-.02em;line-height:.98;font-size:calc(22*var(--u))}
+.three .x{font-size:max(11.5px,calc(11.5*var(--u)));line-height:1.35;color:var(--mute)}
+.three a:hover .t,.three a:focus-visible .t{text-decoration:underline;text-decoration-thickness:.05em;text-underline-offset:.1em}
+.three a:focus-visible{outline:2px solid var(--ink);outline-offset:4px}
+.down{align-self:center;margin-top:auto;padding-top:14px;font-size:max(9.5px,calc(9.5*var(--u)));text-transform:uppercase;letter-spacing:.03em;color:var(--mute)}
+@media (min-width:900px){
+  .st{padding:calc(18*var(--u)) var(--px) calc(22*var(--u))}
+  .st-nav{font-size:calc(16*var(--u))}
+  .st-nav .m{display:inline}
+  .h1{margin-top:calc(4*var(--u))}
+  .rule{margin-top:calc(10*var(--u))}
+  .sub{margin-top:calc(14*var(--u));font-size:calc(38*var(--u));text-indent:30%}
+  .three{margin-top:auto;padding-top:calc(48*var(--u));display:grid;grid-template-columns:repeat(3,1fr);gap:calc(20*var(--u))}
+  .three li{border-top:0;padding:0}
+  .three a{align-items:center;text-align:center;gap:calc(10*var(--u))}
+  .three .t{font-size:calc(34*var(--u))}
+  .three .x{font-size:calc(14*var(--u));max-width:calc(300*var(--u))}
+  .down{padding-top:calc(14*var(--u));font-size:calc(12*var(--u))}
+}
+
+/* Zeitstrahl: ein senkrechter Strang, Jahreszahlen links, Einträge rechts. Abstände folgen der Zeit (Skript), ohne Skript gleichmäßig */
+.tl-wrap{border-top:1.5px solid var(--ink);padding:26px var(--px) 0}
+.tl{--lx:62px;--tx:84px;--g:18px;list-style:none;margin:0;padding:0;position:relative}
+.tl>li{position:relative;padding:var(--g) 0 0 var(--tx);min-height:24px}
+.tl>li::before{content:"";position:absolute;left:var(--lx);top:0;bottom:0;border-left:1.3px solid var(--ink)}
+.tl>li:first-child::before{top:calc(var(--g) + 8px)}
+.tl>li.fut::before,.tl>li.end::before{border-left:1.3px dashed var(--wire)}
+.tl>li.end::before{bottom:auto;height:calc(var(--g) + 8px)}
+.tl>li.fut+li.fut::before{border-left-color:var(--wire)}
+.dot{position:absolute;left:var(--lx);top:calc(var(--g) + 8px);width:9px;height:9px;border-radius:50%;background:var(--ink);transform:translate(-50%,-50%)}
+.j>.dot{border-radius:0;width:11px;height:11px}
+.fut>.dot,.end>.dot{background:var(--paper);border:1.2px solid var(--ink)}
+.now>.dot{background:var(--sage)}
+.yr{position:absolute;left:0;top:calc(var(--g) - 2px);font-weight:700;letter-spacing:-.03em;line-height:.9;font-size:calc(20*var(--u))}
+.ev{display:flex;gap:10px;align-items:flex-start;max-width:640px}
+.ph{flex:none;width:56px;height:72px;border:1px solid var(--wire);background:
+  linear-gradient(to top right,transparent calc(50% - .6px),var(--wire) 50%,transparent calc(50% + .6px)),
+  linear-gradient(to bottom right,transparent calc(50% - .6px),var(--wire) 50%,transparent calc(50% + .6px))}
+.tx{display:flex;flex-direction:column;gap:2px;font-size:max(13px,calc(13*var(--u)));line-height:1.35}
+.tx .d{font-size:max(9.5px,calc(9.5*var(--u)));text-transform:uppercase;letter-spacing:.03em;color:var(--mute)}
+.j .tx>span:last-child{font-weight:700}
+.fut .tx{color:var(--mute)}
+.lbl{font-size:max(9.5px,calc(9.5*var(--u)));text-transform:uppercase;letter-spacing:.03em;color:var(--sage);line-height:1.35}
+.end .lbl{color:var(--mute)}
+.tl a{text-underline-offset:2px}
+#open{scroll-margin-top:40px}
+@media (min-width:900px){
+  .tl-wrap{padding:calc(40*var(--u)) var(--px) 0}
+  .tl{--lx:calc(250*var(--u));--tx:calc(290*var(--u));--g:calc(26*var(--u))}
+  .yr{font-size:calc(56*var(--u))}
+  .ev{max-width:calc(640*var(--u));gap:calc(14*var(--u))}
+  .ph{width:calc(96*var(--u));height:calc(120*var(--u))}
+  .tx{font-size:calc(16*var(--u))}
+  .tx .d,.lbl{font-size:calc(12*var(--u))}
+}
+
+/* Ende: was noch fehlt, die vier Wege */
+.fin{display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px;margin-top:40px;font-size:max(12px,calc(12*var(--u)));color:var(--mute)}
+.fin .ways{display:flex;justify-content:center;flex-wrap:wrap;gap:6px 14px;color:var(--ink)}
+@media (min-width:900px){.fin{margin-top:calc(60*var(--u));font-size:calc(15*var(--u))}}
+.foot{margin-top:60px}
+@media (min-width:900px){.foot{margin-top:calc(80*var(--u))}}

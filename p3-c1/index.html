@@ -2,16 +2,77 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="robots" content="noindex, nofollow">
   <title>WMEW P3 C1</title>
-  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="preload" href="../assets/fonts/inter-tight-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../assets/p1.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- „Where the money comes from“ und „What ME/CFS is“ führen später auf ihre Seiten; bis die gebaut sind, zeigen sie auf # -->
   <main>
-    <a class="back" href="../">← All versions</a>
-    <h1>P3 C1</h1>
-    <div class="empty">This version is not built yet.</div>
+    <header class="st">
+      <nav class="st-nav"><b>WWTF</b><span class="m">ME/CFS research in Vienna, 2024–2026</span><a href="../p1-c/resources/?from=p3-c1">Resources</a></nav>
+      <h1 class="h1"><span>€3.1 million</span></h1>
+      <hr class="rule">
+      <p class="sub">has been put to work for research on ME/CFS from the WWTF, co-funded by the WE&amp;ME Foundation and by donations.</p>
+      <ul class="three">
+        <li><a href="#"><span class="t">Where the money comes from</span><span class="x">WWTF, WE&amp;ME Foundation and donations, in four instruments since 2024.</span></a></li>
+        <li><a href="#"><span class="t">What ME/CFS is</span><span class="x">A neuroimmunological disease. Before 2024: no biomarker, no approved treatment.</span></a></li>
+        <li><a href="#open"><span class="t">What is still open</span><span class="x">€2 million for the Consolidation Call, decided in October 2026.</span></a></li>
+      </ul>
+      <span class="down" aria-hidden="true">2024 ↓</span>
+    </header>
+
+    <section class="tl-wrap" aria-label="Research, 2024 to 2026">
+      <ol class="tl">
+        <li data-m="2"><span class="yr">2024</span><span class="dot"></span><div class="ev"><div class="tx"><span class="d">2024/03</span><span>Call 2024 opens. €700,000, co-funded by the WE&amp;ME Foundation.</span></div></div></li>
+        <li class="j" data-m="8"><span class="dot"></span><div class="ev"><div class="tx"><span class="d">2024/09 · jury</span><span>The international jury decides, including an expert by experience.</span></div></div></li>
+        <li data-m="12"><span class="yr">2025</span><span class="dot"></span><div class="ev"><div class="ph" role="img" aria-label="Photo, to follow"></div><div class="tx"><span class="d">2025/01</span><span>7 exploratory projects start, €695,445 in total. Lukas Haider joins from MS research.</span></div></div></li>
+        <li data-m="14"><span class="dot"></span><div class="ev"><div class="tx"><span class="d">2025/03 · date tbc</span><span>Connecting Minds workshop.</span></div></div></li>
+        <li data-m="24"><span class="yr">2026</span><span class="dot"></span><div class="ev"><div class="tx"><span class="d">2026 · month tbc</span><span>Biobank, first phase until 2027. €200,000.</span></div></div></li>
+        <li data-m="28"><span class="dot"></span><div class="ev"><div class="ph" role="img" aria-label="Photo, to follow"></div><div class="tx"><span class="d">2026/05</span><span>6 fellows start, €233,000. Leonardo Vincenzi goes to Cambridge.</span></div></div></li>
+        <li data-m="29"><span class="dot"></span><div class="ev"><div class="tx"><span class="d">2026/06</span><span>Discover-Me: €7.5 million EU project.</span></div></div></li>
+        <li data-m="30"><span class="dot"></span><div class="ev"><div class="ph" role="img" aria-label="Photo, to follow"></div><div class="tx"><span class="d">2026/07</span><span>FWF WE&amp;ME Award for Matthias Wielscher.</span></div></div></li>
+        <li class="j" data-m="32"><span class="dot"></span><div class="ev"><div class="tx"><span class="d">2026/09 · jury</span><span>Jury for the Consolidation Call. People with ME/CFS review too.</span></div></div></li>
+        <li class="now" data-m="32.6"><span class="dot"></span><span class="lbl">now</span></li>
+        <li class="fut" id="open" data-m="33"><span class="dot"></span><div class="ev"><div class="tx"><span class="d">2026/10</span><span>Decision on the Consolidation Call, €2 million. Ongoing.</span></div></div></li>
+        <li class="end" data-m="35"><span class="dot"></span><span class="lbl">2026/12</span></li>
+      </ol>
+      <div class="fin"><span>not yet: a biomarker</span><span>not yet: a treatment</span><span class="ways"><span>For researchers</span><span>For funders</span><span>For everyone</span><span>For people with ME/CFS</span></span></div>
+    </section>
   </main>
+
+  <footer class="foot">
+    <div class="links"><span>Funded by WWTF, co-funded by the WE&amp;ME Foundation</span></div>
+    <div class="links"><a class="res" href="../p1-c/resources/?from=p3-c1">Resources</a><span>Imprint</span><span>Privacy</span><span>Accessibility</span><a href="../">All versions</a></div>
+  </footer>
+
+  <script>
+    (function(){
+      // „€3.1 million“ füllt genau die Breite
+      var h1=document.querySelector('.h1'), sp=h1.firstChild;
+      function fitH1(){ h1.style.fontSize='100px'; var w=sp.getBoundingClientRect().width; if(w) h1.style.fontSize=(100*h1.clientWidth/w*.995)+'px'; }
+      // Abstände im Zeitstrahl folgen der Zeit, mit Mindestabstand und etwas mehr Luft vor einem neuen Jahr
+      var tl=document.querySelector('.tl'), items=[].slice.call(tl.children);
+      function space(){
+        var desk=matchMedia('(min-width:900px)').matches, u=innerWidth/(desk?1280:375);
+        var PPM=(desk?24:20)*u, GAP=(desk?26:18)*u, NY=(desk?40:24)*u, prevBottom=0, prevM=null;
+        items.forEach(function(li){
+          var m=+li.dataset.m, ny=!!li.querySelector('.yr')&&prevM!==null;
+          li.style.setProperty('--g','0px');
+          var h=li.offsetHeight, g=prevM===null?GAP:Math.max(GAP+(ny?NY:0),(m-prevM)*PPM-prevBottom);
+          if(li.classList.contains('now')||li.classList.contains('end')) g=Math.max(GAP*.7,(m-prevM)*PPM-prevBottom);
+          li.style.setProperty('--g',g+'px');
+          prevBottom=h; prevM=m;
+        });
+      }
+      function all(){fitH1();space();}
+      all();
+      addEventListener('resize',all);
+      if(document.fonts&&document.fonts.ready) document.fonts.ready.then(all);
+    })();
+  </script>
 </body>
 </html>
