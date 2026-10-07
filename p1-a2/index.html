@@ -22,9 +22,35 @@
     .sent .u{white-space:nowrap}
     .sent .mb{display:inline}
     @media (min-width:900px){.sent .mb{display:none}}
+
+    /* Vorspann beim Laden: Ladezeichen C (feine Linie) und ein Hinweis, danach erscheint der Satz */
+    .intro{display:none}
+    .js .intro{display:flex;position:fixed;inset:0;z-index:10;background:var(--paper);flex-direction:column;align-items:center;justify-content:center;gap:28px;padding:var(--pad);text-align:center;transition:opacity .45s ease}
+    .js .intro.out{opacity:0;pointer-events:none}
+    .intro .hint{margin:0;width:100%;max-width:22em;font-size:max(15px,calc(18*var(--u)));line-height:1.35;text-transform:uppercase;letter-spacing:.03em}
+    .intro .hint .tch{display:none}
+    @media (hover:none){.intro .hint .tch{display:inline}.intro .hint .ptr{display:none}}
+    .intro .ld{display:flex;flex-direction:column;align-items:center;gap:20px}
+    .intro .ld span{font-size:12px;letter-spacing:.03em;text-transform:uppercase;color:var(--mute)}
+    .intro svg{--track:#e7e7e6;--lead:#005b94}
+    @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .intro svg{--track:#353533;--lead:#80cee6}}
+    @keyframes wm-run{0%{stroke-dashoffset:40}100%{stroke-dashoffset:-160}}
+    .intro .seg{animation:wm-run 1.6s cubic-bezier(.45,0,.55,1) infinite}
+    @media (prefers-reduced-motion:reduce){.intro .seg{animation:none}.js .intro{transition:none}}
   </style>
+  <script>document.documentElement.classList.add("js")</script>
 </head>
 <body>
+  <div class="intro" role="status">
+    <p class="hint"><span class="ptr">Click</span><span class="tch">Tap</span> any part of the sentence for more details.</p>
+    <div class="ld">
+      <svg width="164" height="8" viewBox="0 0 164 8" fill="none" stroke-linecap="round" aria-hidden="true">
+        <path d="M2 4h160" stroke="var(--track)" stroke-width="1.35"/>
+        <path class="seg" d="M2 4h160" stroke="var(--lead)" stroke-width="1.35" stroke-dasharray="40 200" stroke-dashoffset="-60"/>
+      </svg>
+      <span>Loading</span>
+    </div>
+  </div>
   <!-- Satzglieder führen später auf ihre Kapitel; bis die gebaut sind, zeigen sie auf # -->
   <main>
     <div class="stage">
@@ -57,6 +83,19 @@
       fit();
       if(document.fonts)document.fonts.ready.then(fit);
       var t;addEventListener('resize',function(){clearTimeout(t);t=setTimeout(fit,60);});
+    })();
+  </script>
+  <script>
+    // Vorspann: mindestens eine Runde des Ladezeichens und Zeit zum Lesen, dann ausblenden; Klick oder Taste überspringt
+    (function(){
+      var el=document.querySelector('.intro'), done=false;
+      function hide(){if(done)return;done=true;el.classList.add('out');setTimeout(function(){el.remove();},500);}
+      var minWait=new Promise(function(r){setTimeout(r,2600);});
+      var fonts=document.fonts?document.fonts.ready:Promise.resolve();
+      Promise.all([minWait,fonts]).then(hide);
+      setTimeout(hide,6000);
+      el.addEventListener('click',hide);
+      addEventListener('keydown',hide,{once:true});
     })();
   </script>
 </body>
