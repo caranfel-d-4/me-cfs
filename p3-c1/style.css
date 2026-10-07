@@ -22,7 +22,7 @@
 .three .x{font-size:max(11.5px,calc(11.5*var(--u)));line-height:1.35;color:var(--mute)}
 .three a:hover .t,.three a:focus-visible .t{text-decoration:underline;text-decoration-thickness:.05em;text-underline-offset:.1em}
 .three a:focus-visible{outline:2px solid var(--ink);outline-offset:4px}
-.down{align-self:center;margin-top:auto;padding-top:14px;font-size:max(9.5px,calc(9.5*var(--u)));text-transform:uppercase;letter-spacing:.03em;color:var(--mute)}
+.st .scroll-cue{align-self:center;margin-top:auto;padding-top:14px}
 @media (min-width:900px){
   .st{padding:calc(18*var(--u)) var(--px) calc(22*var(--u))}
   .st-nav{font-size:calc(16*var(--u))}
@@ -35,7 +35,7 @@
   .three a{align-items:center;text-align:center;gap:calc(10*var(--u))}
   .three .t{font-size:calc(34*var(--u))}
   .three .x{font-size:calc(14*var(--u));max-width:calc(300*var(--u))}
-  .down{padding-top:calc(14*var(--u));font-size:calc(12*var(--u))}
+  .st .scroll-cue{padding-top:calc(14*var(--u))}
 }
 
 /* Zeitstrahl: ein senkrechter Strang, Jahreszahlen links, Einträge rechts. Abstände folgen der Zeit (Skript), ohne Skript gleichmäßig */
