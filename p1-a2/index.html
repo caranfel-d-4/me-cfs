@@ -24,9 +24,10 @@
     .intro .ld span{font-size:12px;letter-spacing:.03em;text-transform:uppercase;color:var(--mute)}
     .intro svg{--track:#e7e7e6;--lead:#005b94}
     @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .intro svg{--track:#353533;--lead:#80cee6}}
-    @keyframes wm-run{0%{stroke-dashoffset:40}100%{stroke-dashoffset:-160}}
-    .intro .seg{animation:wm-run 1.6s cubic-bezier(.45,0,.55,1) infinite}
-    @media (prefers-reduced-motion:reduce){.intro .seg{animation:none}.js .intro{transition:none}}
+    /* Ladezeichen C füllt sich einmal von links nach rechts und bleibt voll stehen */
+    @keyframes wm-fill{from{stroke-dashoffset:160}to{stroke-dashoffset:0}}
+    .intro .seg{animation:wm-fill 2s cubic-bezier(.4,0,.2,1) 1 forwards}
+    @media (prefers-reduced-motion:reduce){.intro .seg{animation:none;stroke-dashoffset:0}.js .intro{transition:none}}
   </style>
   <script>document.documentElement.classList.add("js")</script>
 </head>
@@ -36,7 +37,7 @@
     <div class="ld">
       <svg width="164" height="8" viewBox="0 0 164 8" fill="none" stroke-linecap="round" aria-hidden="true">
         <path d="M2 4h160" stroke="var(--track)" stroke-width="1.35"/>
-        <path class="seg" d="M2 4h160" stroke="var(--lead)" stroke-width="1.35" stroke-dasharray="40 200" stroke-dashoffset="-60"/>
+        <path class="seg" d="M2 4h160" stroke="var(--lead)" stroke-width="1.35" stroke-dasharray="160 160" stroke-dashoffset="160"/>
       </svg>
       <span>Loading</span>
     </div>
@@ -75,7 +76,7 @@
     })();
   </script>
   <script>
-    // Vorspann: mindestens eine Runde des Ladezeichens und Zeit zum Lesen, dann ausblenden; Klick oder Taste überspringt
+    // Vorspann: bis die Linie voll ist (2 s) und noch kurz Zeit zum Lesen, dann ausblenden; Klick oder Taste überspringt
     (function(){
       var el=document.querySelector('.intro'), done=false;
       function hide(){if(done)return;done=true;el.classList.add('out');setTimeout(function(){el.remove();},500);}
