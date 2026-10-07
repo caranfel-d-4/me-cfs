@@ -28,7 +28,7 @@
 /* Zeile: Nummer, Titel, Beschreibung, Format · Sprache, Strich darunter */
 .rl{list-style:none;margin:0;padding:0}
 .ri{display:grid;grid-template-columns:calc(26*var(--u)) 1fr;column-gap:calc(6*var(--u));row-gap:3px;padding:calc(8*var(--u)) 0 calc(9*var(--u));border-bottom:1px solid var(--ink)}
-.ri .n{font-family:var(--mono);font-size:max(11px,calc(11*var(--u)));font-variant-numeric:tabular-nums}
+.ri .n{font-family:var(--sans);font-size:max(11.5px,calc(11.5*var(--u)));line-height:1.35;font-variant-numeric:tabular-nums}
 .ri .t{text-transform:uppercase;letter-spacing:-.015em;line-height:1.05;font-size:calc(15*var(--u));text-decoration:none;
   background-image:linear-gradient(currentColor,currentColor);background-repeat:no-repeat;background-position:0 96%;background-size:0% 1px;transition:background-size .4s ease}
 .ri .t:hover,.ri .t:focus-visible{background-size:100% 1px}
@@ -37,7 +37,7 @@
 .ri .go{display:none}
 @media (min-width:900px){
   .ri{grid-template-columns:calc(48*var(--u)) 5fr 4fr calc(170*var(--u)) calc(20*var(--u));column-gap:calc(18*var(--u));align-items:baseline}
-  .ri .n{font-size:max(12px,calc(14*var(--u)))}
+  .ri .n{font-size:max(13px,calc(14*var(--u)))}
   .ri .t{font-size:calc(21*var(--u))}
   .ri .d{grid-column:auto;font-size:max(13px,calc(14*var(--u)))}
   .ri .m{grid-column:auto;font-size:max(10px,calc(11*var(--u)))}
@@ -50,3 +50,5 @@
 .ri:hover .go{color:var(--navy)}
 
 @media (prefers-reduced-motion: reduce){.bk,.ri .t{transition:none}}
+/* Zahlen in der Fließtextschrift (Plex Sans), damit die Null leer bleibt statt mit Punkt wie in Plex Mono */
+.gh .c{font-family:var(--sans);font-variant-numeric:tabular-nums;letter-spacing:0}

@@ -2,16 +2,51 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="robots" content="noindex, nofollow">
   <title>WMEW P1 A2</title>
-  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="preload" href="../assets/fonts/inter-tight-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../assets/p1.css">
+  <style>
+    /* A2 (Entwurf b): Satz bündig, „on ME/CFS“ als eigener Absatz, Aufzählung Glied für Glied. Schrift und Abstände wie P1 C (A3). */
+    .hero{min-height:0}
+    .sent .blk{display:block}
+    .sent .blk + .blk{margin-top:.9em}
+    .sent .ln{display:block}
+    .sent .u{white-space:nowrap}
+    .sent .mb{display:inline}
+    @media (min-width:900px){.sent .mb{display:none}}
+    .sent sup.n{font-size:max(.26em,9px);line-height:1;vertical-align:top;letter-spacing:0;color:var(--mute);margin-left:.1em}
+  </style>
 </head>
 <body>
+  <!-- Satzglieder führen später auf ihre Kapitel; bis die gebaut sind, zeigen sie auf # -->
   <main>
-    <a class="back" href="../">← All versions</a>
-    <h1>P1 A2</h1>
-    <div class="empty">This version is not built yet.</div>
+    <div class="hero">
+      <header class="hd">
+        <div class="l"><b>WWTF</b>Vienna Science and<br>Technology Fund</div>
+        <div class="m">ME/CFS research in Vienna<br>2024–2026</div>
+        <div class="r"><a href="../p1-c/resources/">Resources</a></div>
+      </header>
+      <h1 class="sent">
+        <span class="blk"><span class="u">WWTF is spending</span><br class="mb"> <span class="u"><a class="kw" href="#">€3.1 million</a><sup class="n">1</sup></span></span>
+        <span class="blk"><span class="u">on <a class="kw" href="#">ME/CFS</a><sup class="n">2</sup></span></span>
+        <span class="blk"><span class="u"><a class="kw" href="#">research in Vienna</a><sup class="n">3</sup></span> <span class="u"><a class="kw" href="#">starting in 2024</a><sup class="n">4</sup>:</span></span>
+        <span class="blk">
+          <span class="ln"><span class="u"><a class="kw" href="#">7 exploratory<br class="mb"> projects</a><sup class="n">5</sup></span></span>
+          <span class="ln"><span class="u"><a class="kw" href="#">1 biobank</a><sup class="n">6</sup></span></span>
+          <span class="ln"><span class="u"><a class="kw" href="#">6 fellowships</a><sup class="n">7</sup></span></span>
+          <span class="ln"><span class="u"><a class="kw" href="#">1 call to consolidate<br class="mb"> what worked</a><sup class="n">8</sup></span></span>
+          <span class="ln"><span class="u"><a class="kw" href="#">reviewed together<br class="mb"> with patients</a><sup class="n">9</sup>.</span></span>
+        </span>
+        <span class="blk"><span class="u"><a class="kw" href="#">It is a beginning.</a><sup class="n">10</sup></span></span>
+      </h1>
+    </div>
   </main>
+
+  <footer class="foot">
+    <div class="links"><span>Funded by WWTF, co-funded by the WE&amp;ME Foundation</span></div>
+    <div class="links"><a class="res" href="../p1-c/resources/">Resources</a><span>Imprint</span><span>Privacy</span><span>Accessibility</span><a href="../">All versions</a></div>
+  </footer>
 </body>
 </html>
