@@ -8,10 +8,11 @@
   <link rel="preload" href="../assets/fonts/inter-tight-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="../assets/p1.css">
   <style>
-    /* A2 (Entwurf b): Satz bündig, „on ME/CFS“ als eigener Absatz, Aufzählung Glied für Glied. Schrift und Abstände wie P1 C (A3). */
-    .hero{min-height:0}
+    /* A2 (Entwurf b): Satz bündig, „on ME/CFS“ als eigener Absatz, Aufzählung Glied für Glied. Schrift und Ränder wie P1 C (A3), ohne Kopfzeile und ohne Absatzabstände. */
+    /* Der ganze Satz füllt den ersten Bildschirm: Schriftgröße wird per Skript eingepasst, ohne Skript gilt --fs */
+    .stage{height:100vh;height:100svh;padding:var(--pad);overflow:hidden}
+    @media (min-width:900px){.stage{padding-block:calc(40*var(--u))}}
     .sent .blk{display:block}
-    .sent .blk + .blk{margin-top:.9em}
     .sent .ln{display:block}
     .sent .u{white-space:nowrap}
     .sent .mb{display:inline}
@@ -22,12 +23,7 @@
 <body>
   <!-- Satzglieder führen später auf ihre Kapitel; bis die gebaut sind, zeigen sie auf # -->
   <main>
-    <div class="hero">
-      <header class="hd">
-        <div class="l"><b>WWTF</b>Vienna Science and<br>Technology Fund</div>
-        <div class="m">ME/CFS research in Vienna<br>2024–2026</div>
-        <div class="r"><a href="../p1-c/resources/">Resources</a></div>
-      </header>
+    <div class="stage">
       <h1 class="sent">
         <span class="blk"><span class="u">WWTF is spending</span><br class="mb"> <span class="u"><a class="kw" href="#">€3.1 million</a><sup class="n">1</sup></span></span>
         <span class="blk"><span class="u">on <a class="kw" href="#">ME/CFS</a><sup class="n">2</sup></span></span>
@@ -48,5 +44,16 @@
     <div class="links"><span>Funded by WWTF, co-funded by the WE&amp;ME Foundation</span></div>
     <div class="links"><a class="res" href="../p1-c/resources/">Resources</a><span>Imprint</span><span>Privacy</span><span>Accessibility</span><a href="../">All versions</a></div>
   </footer>
+  <script>
+    // Größte Schrift, bei der der Satz in Breite und Höhe in den Bildschirm passt
+    (function(){
+      var st=document.querySelector('.stage'), h=st.querySelector('.sent');
+      function fits(){var cs=getComputedStyle(st),w=st.clientWidth-parseFloat(cs.paddingLeft)-parseFloat(cs.paddingRight),ht=st.clientHeight-parseFloat(cs.paddingTop)-parseFloat(cs.paddingBottom);return h.scrollWidth<=w+.5&&h.offsetHeight<=ht+.5;}
+      function fit(){var lo=8,hi=400;h.style.width='100%';for(var i=0;i<16;i++){var m=(lo+hi)/2;h.style.fontSize=m+'px';if(fits())lo=m;else hi=m;}h.style.fontSize=Math.floor(lo*10)/10+'px';}
+      fit();
+      if(document.fonts)document.fonts.ready.then(fit);
+      var t;addEventListener('resize',function(){clearTimeout(t);t=setTimeout(fit,60);});
+    })();
+  </script>
 </body>
 </html>
