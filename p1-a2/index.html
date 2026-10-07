@@ -8,21 +8,11 @@
   <link rel="preload" href="../assets/fonts/inter-tight-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="../assets/p1.css">
   <style>
-    /* A2 (Entwurf b): Satz bündig, „on ME/CFS“ als eigener Absatz, Aufzählung Glied für Glied. Schrift und Ränder wie P1 C (A3), ohne Kopfzeile; Abstand nur um die vier Punkte. */
-    /* Der ganze Satz füllt den ersten Bildschirm: Schriftgröße wird per Skript eingepasst, ohne Skript gilt --fs */
-    .stage{height:100vh;height:100svh;padding:var(--pad);overflow:hidden}
+    /* A2 neu (07.10.): P1 C ohne Kopfzeile, Satz oben statt ab halber Höhe; der ganze Satz samt Aufzählung passt auf den ersten Bildschirm */
+    /* Schriftgröße --fs wird per Skript eingepasst, ohne Skript gilt der Wert aus p1.css */
+    .stage{height:100vh;height:100svh;padding-block:var(--pad);overflow:hidden}
     @media (min-width:900px){.stage{padding-block:calc(40*var(--u))}}
-    .sent .blk{display:block}
-    .sent .ln{display:block}
-    /* nur die vier Punkte haben Abstand nach oben und unten */
-    .sent .list4{margin:.6em 0}
-    /* Ziffern als eigene Spalte, größerer Abstand zu den Wörtern als in P1 C */
-    .sent .list4 .ln{display:grid;grid-template-columns:.78em auto;column-gap:.5em;justify-content:start}
-    .sent .nr{font-variant-numeric:tabular-nums}
-    .sent .u{white-space:nowrap}
-    .sent .mb{display:inline}
-    @media (min-width:900px){.sent .mb{display:none}}
-
+    .stage .sent.b1{padding:0 var(--pad) calc(.9*var(--fs))}
     /* Vorspann beim Laden: Ladezeichen C (feine Linie) und ein Hinweis, danach erscheint der Satz */
     .intro{display:none}
     .js .intro{display:flex;position:fixed;inset:0;z-index:10;background:var(--paper);flex-direction:column;align-items:center;justify-content:center;gap:28px;padding:var(--pad);text-align:center;transition:opacity .45s ease}
@@ -54,19 +44,18 @@
   <!-- Satzglieder führen später auf ihre Kapitel; bis die gebaut sind, zeigen sie auf # -->
   <main>
     <div class="stage">
-      <h1 class="sent">
-        <span class="blk"><span class="u">WWTF is spending</span><br class="mb"> <span class="u"><a class="kw" href="#">€3.1 million</a></span></span>
-        <span class="blk"><span class="u">on <a class="kw" href="#">ME/CFS</a></span><br class="mb"> <span class="u"><a class="kw" href="#">research in Vienna</a></span></span>
-        <span class="blk"><span class="u"><a class="kw" href="#">starting in 2024</a>:</span></span>
-        <span class="blk list4">
-          <span class="ln"><span class="nr">7</span><span class="u"><a class="kw" href="#">exploratory<br class="mb"> projects</a></span></span>
-          <span class="ln"><span class="nr">1</span><span class="u"><a class="kw" href="#">biobank</a></span></span>
-          <span class="ln"><span class="nr">6</span><span class="u"><a class="kw" href="#">fellowships</a></span></span>
-          <span class="ln"><span class="nr">1</span><span class="u"><a class="kw" href="#">call to consolidate<br class="mb"> what worked</a></span></span>
-        </span>
-        <span class="blk"><span class="u"><a class="kw" href="#">reviewed together<br class="mb"> with patients</a>.</span></span>
-        <span class="blk"><span class="u"><a class="kw" href="#">It is a beginning.</a></span></span>
-      </h1>
+      <h1 class="sent b1">WWTF is spending<br class="m"> <a class="kw" href="#">€3.1 million</a><br class="d"> <a class="kw" href="#">on ME/CFS</a><br class="m"> <a class="kw" href="#">research in Vienna</a><br> <a class="kw" href="#">starting in 2024</a>:</h1>
+
+    <ol class="list" aria-label="What the money goes to">
+      <li class="it"><span class="n">7</span><span class="t"><a class="kw" href="#">exploratory projects</a></span><span class="a">Call 2024 · €695,445 · since 01/2025</span></li>
+      <li class="it"><span class="n">1</span><span class="t"><a class="kw" href="#">biobank</a></span><span class="a">€200,000 · first phase until 2027</span></li>
+      <li class="it"><span class="n">6</span><span class="t"><a class="kw" href="#">fellowships</a></span><span class="a">€233,000 · since 05/2026</span></li>
+      <li class="it"><span class="n">1</span><span class="t"><a class="kw" href="#">call to consolidate what worked</a></span><span class="a">€2 million · decision 10/2026</span></li>
+    </ol>
+
+    <div class="b3">
+      <p class="sent"><span class="g"><a class="kw" href="#">reviewed together <span class="g">with patients.</span></a></span> <span class="g"><a class="kw" href="#">It is a beginning.</a></span></p>
+    </div>
     </div>
   </main>
 
@@ -75,11 +64,11 @@
     <div class="links"><a class="res" href="../p1-c/resources/">Resources</a><span>Imprint</span><span>Privacy</span><span>Accessibility</span><a href="../">All versions</a></div>
   </footer>
   <script>
-    // Größte Schrift, bei der der Satz in Breite und Höhe in den Bildschirm passt
+    // Größte Schrift, bei der Satz und Aufzählung in Breite und Höhe in den ersten Bildschirm passen
     (function(){
-      var st=document.querySelector('.stage'), h=st.querySelector('.sent');
-      function fits(){var cs=getComputedStyle(st),w=st.clientWidth-parseFloat(cs.paddingLeft)-parseFloat(cs.paddingRight),ht=st.clientHeight-parseFloat(cs.paddingTop)-parseFloat(cs.paddingBottom);return h.scrollWidth<=w+.5&&h.offsetHeight<=ht+.5;}
-      function fit(){var lo=8,hi=400;h.style.width='100%';for(var i=0;i<16;i++){var m=(lo+hi)/2;h.style.fontSize=m+'px';if(fits())lo=m;else hi=m;}h.style.fontSize=Math.floor(lo*10)/10+'px';}
+      var st=document.querySelector('.stage');
+      function fits(){return st.scrollHeight<=st.clientHeight+.5&&st.scrollWidth<=st.clientWidth+.5;}
+      function fit(){var lo=8,hi=200;for(var i=0;i<16;i++){var m=(lo+hi)/2;st.style.setProperty('--fs',m+'px');if(fits())lo=m;else hi=m;}st.style.setProperty('--fs',Math.floor(lo*10)/10+'px');}
       fit();
       if(document.fonts)document.fonts.ready.then(fit);
       var t;addEventListener('resize',function(){clearTimeout(t);t=setTimeout(fit,60);});
