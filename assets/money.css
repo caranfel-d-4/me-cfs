@@ -19,12 +19,12 @@
 @media (min-width:900px){.big{font-size:calc(150*var(--u));padding:calc(4*var(--u)) var(--pad) calc(22*var(--u))}}
 
 /* Text und Grafik links, Randnotizen rechts (Handy: darunter) */
-.cols{display:flex;flex-direction:column;gap:calc(26*var(--u));border-top:1.5px solid var(--ink);margin:0 var(--pad);padding:calc(14*var(--u)) 0 0}
+.cols{display:flex;flex-direction:column;gap:calc(26*var(--u));border-top:1.5px solid var(--ink);margin:calc(32*var(--u)) var(--pad) 0;padding:calc(14*var(--u)) 0 0}
 .body{display:flex;flex-direction:column;gap:calc(14*var(--u));min-width:0}
 .lead{margin:0;font-size:max(15px,calc(15*var(--u)));line-height:1.42}
 .sh{margin:calc(12*var(--u)) 0 0;font-weight:400;text-transform:uppercase;letter-spacing:-.008em;line-height:1;font-size:calc(22*var(--u))}
 @media (min-width:900px){
-  .cols{display:grid;grid-template-columns:720fr 300fr;gap:calc(64*var(--u));align-items:start;padding-top:calc(22*var(--u))}
+  .cols{display:grid;grid-template-columns:720fr 300fr;gap:calc(64*var(--u));align-items:start;padding-top:calc(22*var(--u));margin-top:calc(46*var(--u))}
   .body{gap:calc(22*var(--u))}
   .lead{font-size:max(17px,calc(21*var(--u)));max-width:calc(700*var(--u))}
   .sh{font-size:calc(34*var(--u))}
@@ -57,7 +57,9 @@
 .side{display:flex;flex-direction:column;gap:calc(12*var(--u));font-size:max(12px,calc(11.5*var(--u)));line-height:1.35}
 .side>div{border-top:1px solid var(--ink);padding-top:5px;display:flex;flex-direction:column;gap:2px}
 .side .xr span{display:block}
-@media (min-width:900px){.side{font-size:max(13px,calc(14*var(--u)));gap:calc(18*var(--u));padding-top:calc(6*var(--u))}}
+/* Computer: erste Randnotiz ohne eigenen Strich, der Strich über den Spalten gilt für beide */
+@media (min-width:900px){.side>div:first-child{border-top:0;padding-top:0}}
+@media (min-width:900px){.side{font-size:max(13px,calc(14*var(--u)));gap:calc(18*var(--u))}}
 
 /* Ende: Zusammenfassung zum Aufklappen, weiter zum nächsten Kapitel */
 .end{display:flex;flex-direction:column;gap:12px;margin:calc(40*var(--u)) var(--pad) 0;border-top:1px solid var(--wire-soft);padding-top:10px;font-size:max(12px,calc(12*var(--u)))}
