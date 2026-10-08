@@ -48,8 +48,9 @@ a{color:inherit}
 
 /* Satzglieder: Unterstrich wächst beim Hover. Gleiche Stärke für alle Größen (aus --fs, nicht em), dünner als vorher (.06em);
    je Zeile ein eigener Strich (box-decoration-break). Mehrzeilige Glieder tragen den Strich auf .u-Spannen, damit jedes Wort ihn bekommt */
-.kw{text-decoration:none;cursor:pointer;--ul:max(1px,calc(.035*var(--fs)))}
-.kw,.kw .u{background-image:linear-gradient(currentColor,currentColor);background-repeat:no-repeat;background-position:0 94%;background-size:0% var(--ul);-webkit-box-decoration-break:clone;box-decoration-break:clone;transition:background-size .4s ease}
+.kw{text-decoration:none;cursor:pointer;--ul:max(1px,calc(.035*var(--fs)));--ug:calc(.09*var(--fs))}
+/* Strich immer gleich weit unter der Grundlinie (--ug), egal wie groß die Schrift: Unterkante der Zeile liegt .24em unter der Grundlinie (Inter Tight) */
+.kw,.kw .u{background-image:linear-gradient(currentColor,currentColor);background-repeat:no-repeat;background-position:0 calc(100% - .24em + var(--ug));background-size:0% var(--ul);-webkit-box-decoration-break:clone;box-decoration-break:clone;transition:background-size .4s ease}
 .kw:has(.u){background-image:none}
 .kw:hover,.kw:focus-visible,.kw:hover .u,.kw:focus-visible .u{background-size:100% var(--ul)}
 .kw:focus-visible{outline:none}
