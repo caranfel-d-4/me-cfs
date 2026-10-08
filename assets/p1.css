@@ -46,9 +46,12 @@ a{color:inherit}
 .sent .g .g{display:inline}
 @media (max-width:899px){.sent .g .g{display:block}}
 
-/* Satzglieder: Unterstrich wächst beim Hover */
-.kw{text-decoration:none;cursor:pointer;background-image:linear-gradient(currentColor,currentColor);background-repeat:no-repeat;background-position:0 94%;background-size:0% .06em;transition:background-size .4s ease}
-.kw:hover,.kw:focus-visible{background-size:100% .06em}
+/* Satzglieder: Unterstrich wächst beim Hover. Gleiche Stärke für alle Größen (aus --fs, nicht em), dünner als vorher (.06em);
+   je Zeile ein eigener Strich (box-decoration-break). Mehrzeilige Glieder tragen den Strich auf .u-Spannen, damit jedes Wort ihn bekommt */
+.kw{text-decoration:none;cursor:pointer;--ul:max(1px,calc(.035*var(--fs)))}
+.kw,.kw .u{background-image:linear-gradient(currentColor,currentColor);background-repeat:no-repeat;background-position:0 94%;background-size:0% var(--ul);-webkit-box-decoration-break:clone;box-decoration-break:clone;transition:background-size .4s ease}
+.kw:has(.u){background-image:none}
+.kw:hover,.kw:focus-visible,.kw:hover .u,.kw:focus-visible .u{background-size:100% var(--ul)}
 .kw:focus-visible{outline:none}
 
 .cue{position:absolute;left:var(--pad);bottom:16px;font-size:max(9px,calc(9*var(--u)));color:var(--mute);text-transform:uppercase;letter-spacing:.08em}
@@ -86,4 +89,4 @@ a{color:inherit}
 @media (min-width:900px){
   .foot{flex-direction:row;justify-content:space-between;margin-top:calc(120*var(--u));padding:calc(10*var(--u)) var(--pad) calc(26*var(--u));font-size:max(11px,calc(11*var(--u)))}
 }
-@media (prefers-reduced-motion: reduce){.kw{transition:none}}
+@media (prefers-reduced-motion: reduce){.kw,.kw .u{transition:none}}
