@@ -12,13 +12,13 @@
 .st-nav .m{display:none}
 .st-nav a{text-decoration:none}
 .st-nav a:hover{text-decoration:underline;text-underline-offset:2px}
-.h1{margin:4px 0 0;font-weight:400;text-transform:uppercase;letter-spacing:-.035em;line-height:.86;white-space:nowrap;font-size:calc(52*var(--u))}
+.h1{margin:4px 0 0;font-weight:400;text-transform:uppercase;letter-spacing:-.008em;line-height:.86;white-space:nowrap;font-size:calc(52*var(--u))}
 .rule{border:0;border-top:1.3px solid var(--ink);margin:6px 0 0}
-.sub{margin:10px 0 0;font-weight:400;font-size:calc(21*var(--u));line-height:1.12;letter-spacing:-.015em;text-indent:22%}
+.sub{margin:10px 0 0;font-weight:400;font-size:calc(21*var(--u));line-height:1.12;letter-spacing:-.008em;text-indent:22%}
 .three{list-style:none;margin:28px 0 0;padding:0;display:flex;flex-direction:column}
 .three li{border-top:1px solid var(--ink);padding:8px 0 12px}
 .three a{display:flex;flex-direction:column;gap:6px;text-decoration:none}
-.three .t{text-transform:uppercase;letter-spacing:-.02em;line-height:.98;font-size:calc(22*var(--u))}
+.three .t{text-transform:uppercase;letter-spacing:-.008em;line-height:.98;font-size:calc(22*var(--u))}
 .three .x{font-size:max(11.5px,calc(11.5*var(--u)));line-height:1.35;color:var(--mute)}
 .three a:hover .t,.three a:focus-visible .t{text-decoration:underline;text-decoration-thickness:.05em;text-underline-offset:.1em}
 .three a:focus-visible{outline:2px solid var(--ink);outline-offset:4px}
@@ -51,7 +51,7 @@
 .j>.dot{border-radius:0;width:11px;height:11px}
 .fut>.dot,.end>.dot{background:var(--paper);border:1.2px solid var(--ink)}
 .now>.dot{background:var(--sage)}
-.yr{position:absolute;left:0;top:calc(var(--g) - 2px);font-weight:700;letter-spacing:-.03em;line-height:.9;font-size:calc(20*var(--u))}
+.yr{position:absolute;left:0;top:calc(var(--g) - 2px);font-weight:700;letter-spacing:-.008em;line-height:.9;font-size:calc(20*var(--u))}
 .ev{display:flex;gap:10px;align-items:flex-start;max-width:640px}
 .ph{flex:none;width:56px;height:72px;border:1px solid var(--wire);background:
   linear-gradient(to top right,transparent calc(50% - .6px),var(--wire) 50%,transparent calc(50% + .6px)),

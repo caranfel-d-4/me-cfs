@@ -1,0 +1,49 @@
+/* Unterseite „ME/CFS“ nach Wireframe B2 (P1 S3), gemeinsam für p1-c, p1-a2, p3-c1. Baut auf money.css auf (Kopf, .big, Spalten, Randnotizen, Ende); hier nur, was dazukommt. Schwarzweiß, nur Inter Tight Regular */
+
+/* „The gap“ unter „ME/CFS“, kleiner, gehört zur Überschrift */
+.big .gap{display:block;font-size:calc(22*var(--u));line-height:1;margin-top:calc(10*var(--u))}
+@media (min-width:900px){.big .gap{font-size:calc(34*var(--u));margin-top:calc(14*var(--u))}}
+
+/* Zahlen, die noch nicht belegt sind */
+.tbc{color:var(--mute)}
+.side a{text-decoration:none}
+.side a:hover{color:var(--navy)}
+
+/* Register vor 2024, alles auf null */
+.zero,.show{margin:calc(40*var(--u)) var(--pad) 0;border-top:1.5px solid var(--ink);padding-top:calc(12*var(--u));display:flex;flex-direction:column;gap:calc(14*var(--u))}
+.zero .sh,.show .sh{margin:0}
+.zero .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:calc(16*var(--u)) calc(12*var(--u))}
+.z{display:flex;flex-direction:column;gap:4px}
+.z .n{letter-spacing:-.008em;line-height:.9;font-size:calc(56*var(--u))}
+.z .l,.sl .yr,.sl .src,.ctl .ct{font-size:max(9.5px,calc(9.5*var(--u)));text-transform:uppercase;letter-spacing:.03em;color:var(--mute);line-height:1.3}
+@media (min-width:900px){
+  .zero,.show{margin-top:calc(64*var(--u));padding-top:calc(16*var(--u));gap:calc(22*var(--u))}
+  .zero .grid{grid-template-columns:repeat(5,1fr)}
+  .z .n{font-size:calc(96*var(--u))}
+  .z .l,.sl .yr,.sl .src,.ctl .ct{font-size:max(10.5px,calc(11*var(--u)))}
+}
+
+/* Drei Personen: ein Foto pro Person, seitlich blättern, nichts läuft von selbst */
+.hd2{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.ctl{display:flex;align-items:center;gap:10px}
+.ctl[hidden]{display:none}
+.ctl button{font:inherit;font-size:max(14px,calc(16*var(--u)));color:var(--ink);background:none;border:0;padding:6px 2px;cursor:pointer;transition:color 160ms cubic-bezier(.4,0,.2,1)}
+.ctl button:hover{color:var(--navy)}
+.track{display:flex;gap:calc(12*var(--u));overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain}
+.track::-webkit-scrollbar{display:none}
+.sl{flex:0 0 100%;scroll-snap-align:start;display:flex;flex-direction:column;gap:calc(10*var(--u))}
+/* Platzhalter, solange die Bildlizenz offen ist */
+.ph{width:100%;aspect-ratio:4/5;border:1px solid var(--wire-soft);background:
+  linear-gradient(to top right,transparent calc(50% - .6px),var(--wire-soft) 50%,transparent calc(50% + .6px)),
+  linear-gradient(to bottom right,transparent calc(50% - .6px),var(--wire-soft) 50%,transparent calc(50% + .6px))}
+.cap{display:flex;flex-direction:column;gap:4px;font-size:max(13px,calc(13*var(--u)));line-height:1.38}
+.cap .nm{text-transform:uppercase;letter-spacing:-.008em;line-height:.95;font-size:calc(22*var(--u))}
+.cap .go{align-self:flex-start;margin-top:4px}
+@media (min-width:900px){
+  .sl{display:grid;grid-template-columns:62fr 38fr;gap:calc(32*var(--u));align-items:end}
+  .ph{aspect-ratio:3/2}
+  .cap{font-size:max(15px,calc(17*var(--u)));gap:calc(8*var(--u))}
+  .cap .nm{font-size:calc(48*var(--u))}
+}
+
+@media (prefers-reduced-motion: reduce){.ctl button{transition:none}}
