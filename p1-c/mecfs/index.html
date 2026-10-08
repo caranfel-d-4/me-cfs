@@ -39,15 +39,17 @@
       </div>
     </section>
 
-    <section class="show" role="region" aria-roledescription="slideshow" aria-labelledby="s-h">
+    <section class="show" id="lives" role="region" aria-roledescription="slideshow" aria-labelledby="s-h">
+      <div class="pin">
       <div class="hd2">
         <h2 class="sh" id="s-h">Three lives</h2>
-        <div class="ctl" hidden><button type="button" class="pv" aria-label="Previous person"><svg class="ar" viewBox="0 0 44 24" aria-hidden="true"><path d="M42 12H2"/><path d="M8 6 2 12l6 6"/></svg></button><span class="ct">1/3</span><button type="button" class="nx2" aria-label="Next person"><svg class="ar" viewBox="0 0 44 24" aria-hidden="true"><path d="M2 12h40"/><path d="M36 6l6 6-6 6"/></svg></button></div>
+        <span class="ct" aria-hidden="true" hidden>1/3</span>
       </div>
       <div class="track" tabindex="0" aria-label="Three lives, scroll sideways">
-        <div class="sl" role="group" aria-roledescription="slide" aria-label="1 of 3"><div class="ph" role="img" aria-label="Portrait of Mila Hermisson, image to follow"></div><div class="cap"><span class="nm">Mila Hermisson</span><span class="yr">falls ill · 2018</span><span>She played the cello. Today she lies in a dark room, cared for by her parents.</span><a class="bk go" href="#">her story<svg class="ar" viewBox="0 0 44 24" aria-hidden="true"><path d="M2 12h40"/><path d="M36 6l6 6-6 6"/></svg></a><span class="src">Photo: Brent Stirton · licence tbc</span></div></div>
-        <div class="sl" role="group" aria-roledescription="slide" aria-label="2 of 3"><div class="ph" role="img" aria-label="Portrait of Carmen Rinnhofer, image to follow"></div><div class="cap"><span class="nm">Carmen Rinnhofer</span><span class="yr">falls ill · 2022</span><span>She speaks four languages. Since 2022 she has not left the house.</span><a class="bk go" href="#">her story<svg class="ar" viewBox="0 0 44 24" aria-hidden="true"><path d="M2 12h40"/><path d="M36 6l6 6-6 6"/></svg></a><span class="src">Photo: Brent Stirton · licence tbc</span></div></div>
-        <div class="sl" role="group" aria-roledescription="slide" aria-label="3 of 3"><div class="ph" role="img" aria-label="Portrait of Martin Privec, image to follow"></div><div class="cap"><span class="nm">Martin Privec</span><span class="yr">falls ill · 2017</span><span>Four years in bed. Today he plays basketball again, for a few minutes.</span><a class="bk go" href="#">his story<svg class="ar" viewBox="0 0 44 24" aria-hidden="true"><path d="M2 12h40"/><path d="M36 6l6 6-6 6"/></svg></a><span class="src">Photo: Brent Stirton · licence tbc</span></div></div>
+        <div class="sl" role="group" aria-roledescription="slide" aria-label="1 of 3"><a class="phl" href="mila/"><img class="ph" src="../../assets/photos/mila-800.webp" srcset="../../assets/photos/mila-800.webp 800w, ../../assets/photos/mila-1600.webp 1600w" sizes="(min-width:900px) 60vw, calc(100vw - 44px)" width="1600" height="1067" loading="lazy" alt="Mila Hermisson lies in bed in a dim, blue-lit room, wearing an eye mask, while her mother cares for her."></a><div class="cap"><span class="nm">Mila Hermisson</span><span class="yr">falls ill · 2018</span><span>She played the cello. Today she lies in a dark room, cared for by her parents.</span><a class="bk go" href="mila/">her story<svg class="ar" viewBox="0 0 44 24" aria-hidden="true"><path d="M2 12h40"/><path d="M36 6l6 6-6 6"/></svg></a><span class="src">Photo: Brent Stirton · licence tbc</span></div></div>
+        <div class="sl" role="group" aria-roledescription="slide" aria-label="2 of 3"><a class="phl" href="carmen/"><img class="ph" src="../../assets/photos/carmen-800.webp" srcset="../../assets/photos/carmen-800.webp 800w, ../../assets/photos/carmen-1600.webp 1600w" sizes="(min-width:900px) 60vw, calc(100vw - 44px)" width="1600" height="1067" loading="lazy" alt="Carmen Rinnhofer sits on her bed in a dark room lit blue and green, looking at her phone."></a><div class="cap"><span class="nm">Carmen Rinnhofer</span><span class="yr">falls ill · 2022</span><span>She speaks four languages. Since 2022 she has not left the house.</span><a class="bk go" href="carmen/">her story<svg class="ar" viewBox="0 0 44 24" aria-hidden="true"><path d="M2 12h40"/><path d="M36 6l6 6-6 6"/></svg></a><span class="src">Photo: Brent Stirton · licence tbc</span></div></div>
+        <div class="sl" role="group" aria-roledescription="slide" aria-label="3 of 3"><a class="phl" href="martin/"><div class="ph" role="img" aria-label="Portrait of Martin Privec, image to follow"></div></a><div class="cap"><span class="nm">Martin Privec</span><span class="yr">falls ill · 2017</span><span>Four years in bed. Today he plays basketball again, for a few minutes.</span><a class="bk go" href="martin/">his story<svg class="ar" viewBox="0 0 44 24" aria-hidden="true"><path d="M2 12h40"/><path d="M36 6l6 6-6 6"/></svg></a><span class="src">Photo: Brent Stirton · licence tbc</span></div></div>
+      </div>
       </div>
     </section>
 
@@ -62,16 +64,28 @@
     <div class="links"><a class="bk" href="../"><svg class="ar" viewBox="0 0 44 24" aria-hidden="true"><path d="M42 12H2"/><path d="M8 6 2 12l6 6"/></svg>the sentence</a><a class="res" href="../resources/">Resources</a><span>Imprint</span><span>Privacy</span><span>Accessibility</span><a href="../../">All versions</a></div>
   </footer>
   <script>
-  // Blättern nur auf Knopfdruck, Pfeiltasten oder Wischen; ohne Skript bleibt die Reihe seitlich scrollbar
+  // Drei Personen: Die Seite scrollt normal nach unten, die Reihe bleibt stehen und wandert dabei seitlich. Kein Wischen, kein Knopf, nichts läuft von selbst.
+  // Ohne Skript bleibt die Reihe seitlich scrollbar, bei reduzierter Bewegung stehen die Personen untereinander
   (function(){
-    var tr=document.querySelector('.track'), ctl=document.querySelector('.ctl'), ct=ctl.querySelector('.ct'), n=tr.children.length;
-    ctl.hidden=false;
-    function cur(){return Math.round(tr.scrollLeft/Math.max(1,tr.scrollWidth/n));}
-    function go(d){var k=Math.min(n-1,Math.max(0,cur()+d)), rm=matchMedia('(prefers-reduced-motion: reduce)').matches; tr.scrollTo({left:tr.children[k].offsetLeft-tr.offsetLeft,behavior:rm?'auto':'smooth'});}
-    ctl.querySelector('.pv').addEventListener('click',function(){go(-1);});
-    ctl.querySelector('.nx2').addEventListener('click',function(){go(1);});
-    tr.addEventListener('keydown',function(e){if(e.key==='ArrowRight'){e.preventDefault();go(1);} if(e.key==='ArrowLeft'){e.preventDefault();go(-1);}});
-    tr.addEventListener('scroll',function(){ct.textContent=(cur()+1)+'/'+n;},{passive:true});
+    if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var sh=document.querySelector('.show'), tr=sh.querySelector('.track'), sl=tr.children, n=sl.length, ct=sh.querySelector('.ct'), q=false;
+    sh.classList.add('hs'); sh.style.setProperty('--n',n); tr.removeAttribute('tabindex'); ct.hidden=false;
+    function prog(){var r=sh.getBoundingClientRect(), t=r.height-innerHeight; return t<=0?1:Math.min(1,Math.max(0,-r.top/t));}
+    function upd(){
+      q=false;
+      var x=prog()*(n-1), i=Math.min(n-2,Math.floor(x)), f=x-i, a=sl[i].offsetLeft, b=sl[i+1].offsetLeft;
+      tr.style.transform='translateX('+(-(a+(b-a)*f-sl[0].offsetLeft))+'px)';
+      ct.textContent=(Math.round(x)+1)+'/'+n;
+    }
+    function ask(){if(!q){q=true;requestAnimationFrame(upd);}}
+    addEventListener('scroll',ask,{passive:true}); addEventListener('resize',ask); upd();
+    // Mit der Tabulatortaste zu „her story“ einer anderen Person: die Seite an deren Stelle scrollen
+    tr.addEventListener('focusin',function(e){
+      for(var k=0;k<n;k++) if(sl[k].contains(e.target)){
+        var r=sh.getBoundingClientRect(), t=r.height-innerHeight;
+        scrollTo({top:scrollY+r.top+t*k/(n-1)}); break;
+      }
+    });
   })();
   </script>
 </body>

@@ -15,20 +15,18 @@
 .zero .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:calc(16*var(--u)) calc(12*var(--u))}
 .z{display:flex;flex-direction:column;gap:4px}
 .z .n{letter-spacing:-.008em;line-height:.9;font-size:calc(56*var(--u))}
-.z .l,.sl .yr,.sl .src,.ctl .ct{font-size:max(9.5px,calc(9.5*var(--u)));text-transform:uppercase;letter-spacing:.03em;color:var(--mute);line-height:1.3}
+.z .l,.sl .yr,.sl .src,.hd2 .ct{font-size:max(9.5px,calc(9.5*var(--u)));text-transform:uppercase;letter-spacing:.03em;color:var(--mute);line-height:1.3}
 @media (min-width:900px){
   .zero,.show{margin-top:calc(64*var(--u));padding-top:calc(16*var(--u));gap:calc(22*var(--u))}
   .zero .grid{grid-template-columns:repeat(5,1fr)}
   .z .n{font-size:calc(96*var(--u))}
-  .z .l,.sl .yr,.sl .src,.ctl .ct{font-size:max(10.5px,calc(11*var(--u)))}
+  .z .l,.sl .yr,.sl .src,.hd2 .ct{font-size:max(10.5px,calc(11*var(--u)))}
 }
 
-/* Drei Personen: ein Foto pro Person, seitlich blättern, nichts läuft von selbst */
+/* Drei Personen: ein Foto pro Person. Beim Scrollen nach unten bleibt die Reihe stehen und wandert seitlich (Skript setzt .hs); ohne Skript seitlich scrollbar */
 .hd2{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
-.ctl{display:flex;align-items:center;gap:10px}
-.ctl[hidden]{display:none}
-.ctl button{font:inherit;font-size:max(14px,calc(16*var(--u)));color:var(--ink);background:none;border:0;padding:6px 2px;cursor:pointer;transition:color 160ms cubic-bezier(.4,0,.2,1)}
-.ctl button:hover{color:var(--navy)}
+.ct[hidden]{display:none}
+.pin{display:flex;flex-direction:column;gap:inherit}
 .track{display:flex;gap:calc(12*var(--u));overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain}
 .track::-webkit-scrollbar{display:none}
 .sl{flex:0 0 100%;scroll-snap-align:start;display:flex;flex-direction:column;gap:calc(10*var(--u))}
@@ -46,4 +44,23 @@
   .cap .nm{font-size:calc(48*var(--u))}
 }
 
-@media (prefers-reduced-motion: reduce){.ctl button{transition:none}}
+
+/* Foto verlinkt auf die Personenseite */
+.phl{display:block}
+img.ph{display:block;height:auto;object-fit:cover;border:0;background:var(--wire-soft)}
+
+/* Seitlich wandern, angetrieben vom normalen Scrollen nach unten: .show ist n Bildschirmhöhen hoch, .pin klebt oben, .track wird verschoben */
+.show.hs{display:block;height:calc(var(--n,3)*100svh);border-top:0;padding-top:0}
+.hs .pin{position:sticky;top:0;height:100svh;justify-content:center;gap:calc(14*var(--u));overflow:clip}
+.hs .hd2{border-top:1.5px solid var(--ink);padding-top:calc(12*var(--u))}
+.hs .track{overflow:visible;scroll-snap-type:none;will-change:transform}
+.hs .ph{max-height:calc(100svh - 300px)}
+@media (min-width:900px){
+  .hs .pin{gap:calc(22*var(--u))}
+  .hs .hd2{padding-top:calc(16*var(--u))}
+  .hs .ph{max-height:calc(100svh - 200px)}
+}
+/* Reduzierte Bewegung: die drei Personen untereinander */
+@media (prefers-reduced-motion: reduce){
+  .track{flex-direction:column;overflow:visible;gap:calc(40*var(--u))}
+}
