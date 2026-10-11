@@ -54,6 +54,8 @@ a{color:inherit}
 .kw:has(.u){background-image:none}
 .kw:hover,.kw:focus-visible,.kw:hover .u,.kw:focus-visible .u{background-size:100% var(--ul)}
 .kw:focus-visible{outline:none}
+/* Schrägstrich in ME/CFS reicht unter die Grundlinie: dort setzt der Strich kurz aus (Schatten in Papierfarbe, wie skip-ink) */
+.kw .sl{text-shadow:-.035em 0 var(--paper),.035em 0 var(--paper),-.07em 0 var(--paper),.07em 0 var(--paper)}
 
 .cue{position:absolute;left:var(--pad);bottom:16px;font-size:max(9px,calc(9*var(--u)));color:var(--mute);text-transform:uppercase;letter-spacing:.08em}
 @media (min-width:900px){.cue{bottom:calc(16*var(--u));font-size:max(11px,calc(11*var(--u)))}}
