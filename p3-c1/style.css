@@ -59,9 +59,12 @@
 .fut .tx{color:var(--mute)}
 .lbl{font-size:max(9.5px,calc(9.5*var(--u)));text-transform:uppercase;letter-spacing:.03em;color:var(--sage);line-height:1.35}
 .end .lbl{color:var(--mute)}
-.tl a{color:inherit;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2px}
-.tl a:hover,.tl a:focus-visible{color:#005b94}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .tl a:hover,:root:not([data-theme="light"]) .tl a:focus-visible{color:#80cee6}}
+/* Links im Zeitstrahl als Kästchen mit runden Ecken (Moodboard „10.11. moodboard farbe“, Bild 11): ein Klick führt auf die Unterseite */
+.tl a.pill{display:inline-block;color:inherit;text-decoration:none;border:1.2px solid var(--ink);border-radius:999px;padding:.02em .55em .08em;margin:.12em 0;line-height:1.25;white-space:nowrap;transition:background-color .15s,color .15s,border-color .15s}
+.tl a.pill:hover,.tl a.pill:focus-visible{background:#005b94;border-color:#005b94;color:#fff;outline:none}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .tl a.pill:hover,:root:not([data-theme="light"]) .tl a.pill:focus-visible{background:#80cee6;border-color:#80cee6;color:#181715}}
+:root[data-theme="dark"] .tl a.pill:hover,:root[data-theme="dark"] .tl a.pill:focus-visible{background:#80cee6;border-color:#80cee6;color:#181715}
+.fut a.pill{border-color:var(--mute)}
 #open{scroll-margin-top:40px}
 @media (min-width:900px){
   .tl-wrap{padding:calc(40*var(--u)) var(--px) 0}
