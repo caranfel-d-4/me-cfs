@@ -38,41 +38,33 @@
   .st .scroll-cue{padding-top:calc(14*var(--u))}
 }
 
-/* Zeitstrahl: ein senkrechter Strang, Jahreszahlen links, Einträge rechts. Abstände folgen der Zeit (Skript), ohne Skript gleichmäßig */
+/* Zeitstrahl als Tabelle nach G4 (Farbkonzepte 13.10., Moodboard „10.13.“ Bild 6, Cosmic Calendar), ohne die große Schrift darüber:
+   Year, Month, Amount, Event; jedes Ereignis rückt ein Stück weiter ein, so entsteht eine Treppe nach rechts unten. Am Handy ohne „Amount“ */
 .tl-wrap{border-top:1.5px solid var(--ink);padding:26px var(--px) 0}
-.tl{--lx:62px;--tx:84px;--g:18px;list-style:none;margin:0;padding:0;position:relative}
-.tl>li{position:relative;padding:var(--g) 0 0 var(--tx);min-height:24px}
-.tl>li::before{content:"";position:absolute;left:var(--lx);top:0;bottom:0;border-left:1.3px solid var(--ink)}
-.tl>li:first-child::before{top:calc(var(--g) + 8px)}
-.tl>li.fut::before,.tl>li.end::before{border-left:1.3px dashed var(--wire)}
-.tl>li.end::before{bottom:auto;height:calc(var(--g) + 8px)}
-.tl>li.fut+li.fut::before{border-left-color:var(--wire)}
-.dot{position:absolute;left:var(--lx);top:calc(var(--g) + 8px);width:9px;height:9px;border-radius:50%;background:var(--ink);transform:translate(-50%,-50%)}
-.j>.dot{border-radius:0;width:11px;height:11px}
-.fut>.dot,.end>.dot{background:var(--paper);border:1.2px solid var(--ink)}
-.now>.dot{background:var(--sage)}
-.yr{position:absolute;left:0;top:calc(var(--g) - 2px);font-weight:700;letter-spacing:-.008em;line-height:.9;font-size:calc(20*var(--u))}
-.ev{display:flex;gap:10px;align-items:flex-start;max-width:640px}
-.tx{display:flex;flex-direction:column;gap:2px;font-size:max(13px,calc(13*var(--u)));line-height:1.35}
-.tx .d{font-size:max(9.5px,calc(9.5*var(--u)));text-transform:uppercase;letter-spacing:.03em;color:var(--mute)}
-.j .tx>span:last-child{font-weight:700}
-.fut .tx{color:var(--mute)}
-.lbl{font-size:max(9.5px,calc(9.5*var(--u)));text-transform:uppercase;letter-spacing:.03em;color:var(--sage);line-height:1.35}
-.end .lbl{color:var(--mute)}
-/* Links im Zeitstrahl als Kästchen mit runden Ecken (Moodboard „10.11. moodboard farbe“, Bild 11): ein Klick führt auf die Unterseite */
-.tl a.pill{display:inline-block;color:inherit;text-decoration:none;border:1.2px solid var(--ink);border-radius:999px;padding:.02em .55em .08em;margin:.12em 0;line-height:1.25;white-space:nowrap;transition:background-color .15s,color .15s,border-color .15s}
-.tl a.pill:hover,.tl a.pill:focus-visible{background:#005b94;border-color:#005b94;color:#fff;outline:none}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .tl a.pill:hover,:root:not([data-theme="light"]) .tl a.pill:focus-visible{background:#80cee6;border-color:#80cee6;color:#181715}}
-:root[data-theme="dark"] .tl a.pill:hover,:root[data-theme="dark"] .tl a.pill:focus-visible{background:#80cee6;border-color:#80cee6;color:#181715}
-.fut a.pill{border-color:var(--mute)}
+.cc{width:100%;border-collapse:collapse;table-layout:fixed;font-size:max(10.5px,calc(10.5*var(--u)));line-height:1.35}
+.cc th,.cc td{padding:calc(7*var(--u)) 0;text-align:left;vertical-align:baseline;font-weight:400}
+.cc th{font-size:max(9px,calc(7.5*var(--u)));text-transform:uppercase;letter-spacing:.03em;color:var(--mute);border-bottom:1px solid var(--ink)}
+.cc th:nth-child(1){width:calc(38*var(--u))}
+.cc th:nth-child(2){width:calc(40*var(--u))}
+.cc .am{display:none}
+.cc td.ev2{padding-left:min(calc(var(--i)*12*var(--u)),30%)}
+.cc tr.op td.ev2>span{text-decoration:underline;text-decoration-color:#ec6a61;text-decoration-thickness:2px;text-underline-offset:.2em}
+/* Links als Kästchen mit runden Ecken (Moodboard „10.11. moodboard farbe“, Bild 11): ein Klick führt auf die Unterseite */
+.cc a.pill{display:inline-block;color:inherit;text-decoration:none;border:1.2px solid var(--ink);border-radius:999px;padding:.02em .55em .08em;margin:.12em 0;line-height:1.25;white-space:nowrap;transition:background-color .15s,color .15s,border-color .15s}
+.cc a.pill:hover,.cc a.pill:focus-visible{background:#005b94;border-color:#005b94;color:#fff;outline:none}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .cc a.pill:hover,:root:not([data-theme="light"]) .cc a.pill:focus-visible{background:#80cee6;border-color:#80cee6;color:#181715}}
+:root[data-theme="dark"] .cc a.pill:hover,:root[data-theme="dark"] .cc a.pill:focus-visible{background:#80cee6;border-color:#80cee6;color:#181715}
 #open{scroll-margin-top:40px}
 @media (min-width:900px){
   .tl-wrap{padding:calc(40*var(--u)) var(--px) 0}
-  .tl{--lx:calc(250*var(--u));--tx:calc(290*var(--u));--g:calc(26*var(--u))}
-  .yr{font-size:calc(56*var(--u))}
-  .ev{max-width:calc(640*var(--u));gap:calc(14*var(--u))}
-  .tx{font-size:calc(16*var(--u))}
-  .tx .d,.lbl{font-size:calc(12*var(--u))}
+  .cc{font-size:calc(15*var(--u))}
+  .cc th,.cc td{padding:calc(13*var(--u)) 0}
+  .cc th{font-size:calc(10*var(--u))}
+  .cc th:nth-child(1){width:calc(70*var(--u))}
+  .cc th:nth-child(2){width:calc(60*var(--u))}
+  .cc th.am{width:calc(120*var(--u))}
+  .cc .am{display:table-cell}
+  .cc td.ev2{padding-left:calc(var(--i)*26*var(--u))}
 }
 
 /* Ende: was noch fehlt, die vier Wege */
