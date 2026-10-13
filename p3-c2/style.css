@@ -46,9 +46,9 @@
 @media (min-width:900px){.st-nav{padding:calc(10*var(--u)) var(--px)}.h1{margin-top:calc(14*var(--u))}}
 
 /* Zeitstrahl als Tabelle nach G4 (Farbkonzepte 13.10., Moodboard „10.13.“ Bild 6, Cosmic Calendar), ohne die große Schrift darüber:
-   Year, Month, Amount, Event; jedes Ereignis rückt ein Stück weiter ein, so entsteht eine Treppe nach rechts unten. Am Handy ohne „Amount“ */
+   Year, Month, Amount, Event; seit 13.10. ohne Treppe: alle Einträge beginnen bündig untereinander. Am Handy ohne „Amount“ */
 .tl-wrap{border-top:1.5px solid var(--ink);padding:26px var(--px) 0}
-/* Angepasst an G2 (13.10., Florence Laprat): Datum in Dunkelblau, Einträge groß in Versalien, Koralle nur für den offenen Call; Tabelle und Treppe bleiben */
+/* Angepasst an G2 (13.10., Florence Laprat): Datum in Dunkelblau, Einträge groß in Versalien, Koralle nur für den offenen Call; Tabelle bleibt */
 .cc{--navy:#005b94;width:100%;border-collapse:collapse;table-layout:fixed;font-size:max(14px,calc(14*var(--u)));line-height:1.08;letter-spacing:-.008em}
 .cc th,.cc td{padding:calc(9*var(--u)) 0;text-align:left;vertical-align:baseline;font-weight:400}
 .cc td{text-transform:uppercase}
@@ -57,7 +57,6 @@
 .cc th:nth-child(1){width:calc(46*var(--u))}
 .cc th:nth-child(2){width:calc(46*var(--u))}
 .cc .am{display:none}
-.cc td.ev2{padding-left:min(calc(var(--i)*10*var(--u)),25%)}
 .cc tr.op td.ev2>span{text-decoration:underline;text-decoration-color:#ec6a61;text-decoration-thickness:2px;text-underline-offset:.2em}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .cc{--navy:#80cee6}}
 :root[data-theme="dark"] .cc{--navy:#80cee6}
@@ -76,7 +75,6 @@
   .cc th:nth-child(2){width:calc(62*var(--u))}
   .cc th.am{width:calc(190*var(--u))}
   .cc .am{display:table-cell}
-  .cc td.ev2{padding-left:calc(var(--i)*22*var(--u))}
   /* Koralle erst ab 24 px lesbar genug: Datum des offenen Calls nur am Computer in Koralle */
   .cc tr.op td:nth-child(1),.cc tr.op td:nth-child(2){color:#ec6a61}
 }
