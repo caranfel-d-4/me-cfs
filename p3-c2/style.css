@@ -38,33 +38,47 @@
   .st .scroll-cue{padding-top:calc(14*var(--u))}
 }
 
+/* Kopfzeile als dunkelblaues Band (wie G2, 13.10.), weiße Schrift, über die ganze Breite */
+.st{padding-top:0}
+.st-nav{background:#005b94;color:#fff;margin:0 calc(-1*var(--px));padding:9px var(--px)}
+.st-nav a{color:#fff}
+.h1{margin-top:12px}
+@media (min-width:900px){.st-nav{padding:calc(10*var(--u)) var(--px)}.h1{margin-top:calc(14*var(--u))}}
+
 /* Zeitstrahl als Tabelle nach G4 (Farbkonzepte 13.10., Moodboard „10.13.“ Bild 6, Cosmic Calendar), ohne die große Schrift darüber:
    Year, Month, Amount, Event; jedes Ereignis rückt ein Stück weiter ein, so entsteht eine Treppe nach rechts unten. Am Handy ohne „Amount“ */
 .tl-wrap{border-top:1.5px solid var(--ink);padding:26px var(--px) 0}
-.cc{width:100%;border-collapse:collapse;table-layout:fixed;font-size:max(10.5px,calc(10.5*var(--u)));line-height:1.35}
-.cc th,.cc td{padding:calc(7*var(--u)) 0;text-align:left;vertical-align:baseline;font-weight:400}
-.cc th{font-size:max(9px,calc(7.5*var(--u)));text-transform:uppercase;letter-spacing:.03em;color:var(--mute);border-bottom:1px solid var(--ink)}
-.cc th:nth-child(1){width:calc(38*var(--u))}
-.cc th:nth-child(2){width:calc(40*var(--u))}
+/* Angepasst an G2 (13.10., Florence Laprat): Datum in Dunkelblau, Einträge groß in Versalien, Koralle nur für den offenen Call; Tabelle und Treppe bleiben */
+.cc{--navy:#005b94;width:100%;border-collapse:collapse;table-layout:fixed;font-size:max(14px,calc(14*var(--u)));line-height:1.08;letter-spacing:-.008em}
+.cc th,.cc td{padding:calc(9*var(--u)) 0;text-align:left;vertical-align:baseline;font-weight:400}
+.cc td{text-transform:uppercase}
+.cc td:nth-child(1),.cc td:nth-child(2){color:var(--navy)}
+.cc th{font-size:max(9px,calc(7.5*var(--u)));line-height:1.35;text-transform:uppercase;letter-spacing:.03em;color:var(--mute);border-bottom:1px solid var(--ink)}
+.cc th:nth-child(1){width:calc(46*var(--u))}
+.cc th:nth-child(2){width:calc(46*var(--u))}
 .cc .am{display:none}
-.cc td.ev2{padding-left:min(calc(var(--i)*12*var(--u)),30%)}
+.cc td.ev2{padding-left:min(calc(var(--i)*10*var(--u)),25%)}
 .cc tr.op td.ev2>span{text-decoration:underline;text-decoration-color:#ec6a61;text-decoration-thickness:2px;text-underline-offset:.2em}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .cc{--navy:#80cee6}}
+:root[data-theme="dark"] .cc{--navy:#80cee6}
 /* Links als Kästchen mit runden Ecken (Moodboard „10.11. moodboard farbe“, Bild 11): ein Klick führt auf die Unterseite */
-.cc a.pill{display:inline-block;color:inherit;text-decoration:none;border:1.2px solid var(--ink);border-radius:999px;padding:.02em .55em .08em;margin:.12em 0;line-height:1.25;white-space:nowrap;transition:background-color .15s,color .15s,border-color .15s}
+.cc a.pill{display:inline-block;color:inherit;text-decoration:none;border:1.2px solid var(--ink);border-radius:999px;padding:.06em .45em .02em;margin:.1em 0;line-height:1.05;white-space:nowrap;transition:background-color .15s,color .15s,border-color .15s}
 .cc a.pill:hover,.cc a.pill:focus-visible{background:#005b94;border-color:#005b94;color:#fff;outline:none}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .cc a.pill:hover,:root:not([data-theme="light"]) .cc a.pill:focus-visible{background:#80cee6;border-color:#80cee6;color:#181715}}
 :root[data-theme="dark"] .cc a.pill:hover,:root[data-theme="dark"] .cc a.pill:focus-visible{background:#80cee6;border-color:#80cee6;color:#181715}
 #open{scroll-margin-top:40px}
 @media (min-width:900px){
   .tl-wrap{padding:calc(40*var(--u)) var(--px) 0}
-  .cc{font-size:calc(15*var(--u))}
-  .cc th,.cc td{padding:calc(13*var(--u)) 0}
-  .cc th{font-size:calc(10*var(--u))}
-  .cc th:nth-child(1){width:calc(70*var(--u))}
-  .cc th:nth-child(2){width:calc(60*var(--u))}
-  .cc th.am{width:calc(120*var(--u))}
+  .cc{font-size:calc(26*var(--u))}
+  .cc th,.cc td{padding:calc(14*var(--u)) 0}
+  .cc th{font-size:calc(11*var(--u))}
+  .cc th:nth-child(1){width:calc(100*var(--u))}
+  .cc th:nth-child(2){width:calc(62*var(--u))}
+  .cc th.am{width:calc(190*var(--u))}
   .cc .am{display:table-cell}
-  .cc td.ev2{padding-left:calc(var(--i)*26*var(--u))}
+  .cc td.ev2{padding-left:calc(var(--i)*22*var(--u))}
+  /* Koralle erst ab 24 px lesbar genug: Datum des offenen Calls nur am Computer in Koralle */
+  .cc tr.op td:nth-child(1),.cc tr.op td:nth-child(2){color:#ec6a61}
 }
 
 /* Ende: was noch fehlt, die vier Wege */
