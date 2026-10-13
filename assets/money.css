@@ -22,6 +22,9 @@
 .cols{display:flex;flex-direction:column;gap:calc(26*var(--u));border-top:1.5px solid var(--ink);margin:calc(32*var(--u)) var(--pad) 0;padding:calc(14*var(--u)) 0 0}
 .body{display:flex;flex-direction:column;gap:calc(14*var(--u));min-width:0}
 .lead{margin:0;font-size:max(15px,calc(15*var(--u)));line-height:1.42}
+/* Strich direkt unter der Überschrift: enger (13.10.) */
+.big+.cols{margin-top:calc(14*var(--u))}
+@media (min-width:900px){.big+.cols{margin-top:calc(22*var(--u))}}
 .sh{margin:calc(12*var(--u)) 0 0;font-weight:400;text-transform:uppercase;letter-spacing:-.008em;line-height:1;font-size:calc(22*var(--u))}
 @media (min-width:900px){
   .cols{display:grid;grid-template-columns:720fr 300fr;gap:calc(64*var(--u));align-items:start;padding-top:calc(22*var(--u));margin-top:calc(46*var(--u))}

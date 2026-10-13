@@ -21,6 +21,9 @@
 .grp{padding:0 var(--pad)}
 .gh{display:flex;justify-content:space-between;margin:0;font-weight:400;font-size:max(9.5px,calc(9.5*var(--u)));letter-spacing:.03em;text-transform:uppercase;color:var(--mute);padding:calc(18*var(--u)) 0 4px;border-bottom:1.5px solid var(--ink)}
 @media (min-width:900px){.gh{font-size:max(11px,calc(12*var(--u)));padding-top:calc(26*var(--u))}}
+/* erste Themenzeile näher an die Überschrift (13.10.) */
+.big+.grp .gh{padding-top:calc(4*var(--u))}
+@media (min-width:900px){.big+.grp .gh{padding-top:calc(6*var(--u))}}
 
 /* Zeile: Nummer, Titel, Beschreibung, Format · Sprache, Strich darunter */
 .rl{list-style:none;margin:0;padding:0}
