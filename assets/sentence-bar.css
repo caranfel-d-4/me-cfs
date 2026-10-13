@@ -45,3 +45,7 @@
 .ff .wm-btn:hover,.ff .wm-btn:focus-visible{background:#005b94;box-shadow:inset 0 0 0 1px #005b94}
 .ff .wm-btn:hover .wm-k,.ff .wm-btn:hover .wm-b,.ff .wm-btn:focus-visible .wm-k,.ff .wm-btn:focus-visible .wm-b{fill:#fff}
 @media (prefers-reduced-motion:reduce){.sb-trk,.sb-trk a,.sb-home,.ff .logo-btn .lg-bg,.ff .wm-btn,.ff .wm-btn .wm-k,.ff .wm-btn .wm-b{transition:none}}
+/* Unten auf den Kapitelseiten keine Vor/Zurück-Links mehr (die Satzleiste führt durch die Kapitel): „Summary +“ steht allein, mittig, ohne Strich */
+.end.solo{border-top:0;align-items:center;text-align:center}
+.end.solo details ul{text-align:left;margin-inline:auto}
+@media (min-width:900px){.end.solo{justify-content:center}}
