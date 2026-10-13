@@ -75,9 +75,24 @@
   .tx .d,.lbl{font-size:calc(12*var(--u))}
 }
 
-/* Ende: was noch fehlt, die vier Wege */
-.fin{display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px;margin-top:40px;font-size:max(12px,calc(12*var(--u)));color:var(--mute)}
-.fin .ways{display:flex;justify-content:center;flex-wrap:wrap;gap:6px 14px;color:var(--ink)}
-@media (min-width:900px){.fin{margin-top:calc(60*var(--u));font-size:calc(15*var(--u))}}
+/* Ende: was noch fehlt, dann groß der Verweis auf „It is a beginning.“ über die ganze Breite (wie „€3.1 MILLION“ oben). Eine Fassung für alle, keine Wege nach Zielgruppe */
+.fin{margin-top:48px}
+.fin-n{display:flex;justify-content:center;flex-wrap:wrap;gap:4px 18px;margin:0 0 28px;font-size:max(12px,calc(12*var(--u)));text-transform:uppercase;letter-spacing:.03em;color:var(--mute)}
+.beg{display:flex;flex-direction:column;border-top:1.3px solid var(--ink);padding-top:10px;text-decoration:none;color:var(--ink);transition:color 160ms cubic-bezier(.4,0,.2,1)}
+.beg-t{align-self:flex-start;white-space:nowrap;text-transform:uppercase;letter-spacing:-.008em;line-height:.86;font-size:calc(40*var(--u))}
+.beg-a{align-self:flex-end;display:inline-flex;align-items:center;gap:.6em;margin-top:12px;font-size:max(12px,calc(12*var(--u)));text-transform:uppercase;letter-spacing:.03em}
+.beg-a svg{width:3.4em;height:1.1em;overflow:visible;fill:none;stroke:currentColor;stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round;transition:transform 160ms cubic-bezier(.4,0,.2,1)}
+.beg:hover,.beg:focus-visible{color:#005b94;outline:none}
+.beg:hover .beg-a svg,.beg:focus-visible .beg-a svg{transform:translateX(4px)}
+.beg:focus-visible .beg-t{text-decoration:underline;text-decoration-thickness:.03em;text-underline-offset:.08em}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .beg:hover,:root:not([data-theme="light"]) .beg:focus-visible{color:#80cee6}}
+:root[data-theme="dark"] .beg:hover,:root[data-theme="dark"] .beg:focus-visible{color:#80cee6}
+@media (prefers-reduced-motion:reduce){.beg,.beg-a svg{transition:none}}
+@media (min-width:900px){
+  .fin{margin-top:calc(90*var(--u))}
+  .fin-n{font-size:calc(14*var(--u));margin-bottom:calc(40*var(--u))}
+  .beg{padding-top:calc(14*var(--u))}
+  .beg-a{font-size:calc(16*var(--u));margin-top:calc(16*var(--u))}
+}
 .foot{margin-top:60px}
 @media (min-width:900px){.foot{margin-top:calc(80*var(--u))}}

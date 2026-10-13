@@ -40,7 +40,10 @@
         <li class="fut" id="open" data-m="33"><span class="dot"></span><div class="ev"><div class="tx"><span class="d">2026/10</span><span>Decision on the <a class="pill" href="call/">Consolidation Call</a>, €2 million. Ongoing.</span></div></div></li>
         <li class="end" data-m="35"><span class="dot"></span><span class="lbl">2026/12</span></li>
       </ol>
-      <div class="fin"><span>not yet: a biomarker</span><span>not yet: a treatment</span><a class="ways" href="beginning/"><span>For researchers</span><span>For funders</span><span>For everyone</span><span>For people with ME/CFS</span></a></div>
+      <div class="fin">
+        <p class="fin-n"><span>not yet: a biomarker</span><span>not yet: a treatment</span></p>
+        <a class="beg" href="beginning/"><span class="beg-t">It is a beginning.</span><span class="beg-a">what comes next<svg viewBox="0 0 44 24" aria-hidden="true"><path d="M2 12h40"/><path d="M36 6l6 6-6 6"/></svg></span></a>
+      </div>
     </section>
   </main>
 
@@ -70,7 +73,10 @@
           prevBottom=h; prevM=m;
         });
       }
-      function all(){fitH1();space();}
+      // „It is a beginning.“ am Ende ebenso über die ganze Breite
+      var bt=document.querySelector('.beg-t'), bw=bt.parentNode;
+      function fitBeg(){ bt.style.fontSize='100px'; var w=bt.getBoundingClientRect().width; if(w) bt.style.fontSize=(100*bw.clientWidth/w*.995)+'px'; }
+      function all(){fitH1();space();fitBeg();}
       all();
       addEventListener('resize',all);
       if(document.fonts&&document.fonts.ready) document.fonts.ready.then(all);
