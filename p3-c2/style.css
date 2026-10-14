@@ -74,8 +74,6 @@
   .cc th:nth-child(2){width:calc(62*var(--u))}
   .cc th.am{width:calc(190*var(--u))}
   .cc .am{display:table-cell}
-  /* Koralle erst ab 24 px lesbar genug: Datum des offenen Calls nur am Computer in Koralle */
-  .cc tr.op td:nth-child(1),.cc tr.op td:nth-child(2){color:#ec6a61}
 }
 
 /* Ende: was noch fehlt, die vier Wege */
