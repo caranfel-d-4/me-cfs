@@ -15,7 +15,7 @@
 .h1{margin:4px 0 0;font-weight:400;text-transform:uppercase;letter-spacing:-.008em;line-height:.86;white-space:nowrap;font-size:calc(52*var(--u))}
 .rule{border:0;border-top:1.3px solid var(--ink);margin:6px 0 0}
 .sub{margin:10px 0 0;font-weight:400;font-size:calc(21*var(--u));line-height:1.12;letter-spacing:-.008em;text-indent:22%}
-.three{list-style:none;margin:28px 0 0;padding:0;display:flex;flex-direction:column}
+.three{list-style:none;margin:16px 0 0;padding:0;display:flex;flex-direction:column}
 .three li{border-top:1px solid var(--ink);padding:8px 0 12px}
 .three a{display:flex;flex-direction:column;gap:6px;text-decoration:none}
 .three .t{text-transform:uppercase;letter-spacing:-.008em;line-height:.98;font-size:calc(22*var(--u))}
@@ -29,7 +29,7 @@
   .h1{margin-top:calc(4*var(--u))}
   .rule{margin-top:calc(10*var(--u))}
   .sub{margin-top:calc(14*var(--u));font-size:calc(38*var(--u));text-indent:30%}
-  .three{margin-top:0;padding-top:calc(60*var(--u));display:grid;grid-template-columns:repeat(3,1fr);gap:calc(20*var(--u))}
+  .three{margin-top:0;padding-top:calc(24*var(--u));display:grid;grid-template-columns:repeat(3,1fr);gap:calc(20*var(--u))}
   .three li{border-top:0;padding:0}
   .three a{align-items:center;text-align:center;gap:calc(10*var(--u))}
   .three .t{font-size:calc(34*var(--u))}
