@@ -6,7 +6,7 @@
 @media (min-width:900px){:root{--px:calc(40*var(--u))}}
 
 /* Erster Bildschirm */
-.st{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;padding:34px var(--px) 16px}
+.st{display:flex;flex-direction:column;padding:34px var(--px) 16px}
 .st-nav{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-size:max(12px,calc(12*var(--u)))}
 .st-nav b{font-weight:700;letter-spacing:.02em}
 .st-nav .m{display:none}
@@ -29,7 +29,7 @@
   .h1{margin-top:calc(4*var(--u))}
   .rule{margin-top:calc(10*var(--u))}
   .sub{margin-top:calc(14*var(--u));font-size:calc(38*var(--u));text-indent:30%}
-  .three{margin-top:auto;padding-top:calc(48*var(--u));display:grid;grid-template-columns:repeat(3,1fr);gap:calc(20*var(--u))}
+  .three{margin-top:0;padding-top:calc(60*var(--u));display:grid;grid-template-columns:repeat(3,1fr);gap:calc(20*var(--u))}
   .three li{border-top:0;padding:0}
   .three a{align-items:center;text-align:center;gap:calc(10*var(--u))}
   .three .t{font-size:calc(34*var(--u))}
