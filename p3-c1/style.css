@@ -22,7 +22,6 @@
 .three .x{font-size:max(11.5px,calc(11.5*var(--u)));line-height:1.35;color:var(--mute)}
 .three a:hover .t,.three a:focus-visible .t{text-decoration:underline;text-decoration-thickness:.05em;text-underline-offset:.1em}
 .three a:focus-visible{outline:2px solid var(--ink);outline-offset:4px}
-.st .scroll-cue{align-self:center;margin-top:auto;padding-top:14px}
 @media (min-width:900px){
   .st{padding:calc(18*var(--u)) var(--px) calc(22*var(--u))}
   .st-nav{font-size:calc(16*var(--u))}
@@ -35,11 +34,10 @@
   .three a{align-items:center;text-align:center;gap:calc(10*var(--u))}
   .three .t{font-size:calc(34*var(--u))}
   .three .x{font-size:calc(14*var(--u));max-width:calc(300*var(--u))}
-  .st .scroll-cue{padding-top:calc(14*var(--u))}
 }
 
 /* Zeitstrahl: ein senkrechter Strang, Jahreszahlen links, Einträge rechts. Abstände folgen der Zeit (Skript), ohne Skript gleichmäßig */
-.tl-wrap{border-top:1.5px solid var(--ink);padding:26px var(--px) 0}
+.tl-wrap{padding:26px var(--px) 0}
 .tl{--lx:62px;--tx:84px;--g:18px;list-style:none;margin:0;padding:0;position:relative}
 .tl>li{position:relative;padding:var(--g) 0 0 var(--tx);min-height:24px}
 .tl>li::before{content:"";position:absolute;left:var(--lx);top:0;bottom:0;border-left:1.3px solid var(--ink)}
