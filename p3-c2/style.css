@@ -39,14 +39,14 @@
 .hs-run .c{font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--ink)}
 .hs-view{position:relative;flex:1;min-height:0;overflow:hidden}
 .hs-track{position:absolute;top:0;bottom:0;left:0;display:flex;gap:calc(26*var(--u));margin:0;padding:0 var(--px);list-style:none;will-change:transform}
-.hs-it{flex:0 0 calc(300*var(--u));display:flex;flex-direction:column;padding:calc(24*var(--u)) 0 calc(44*var(--u))}
+.hs-it{flex:0 0 calc(300*var(--u));display:flex;flex-direction:column;padding:calc(30*var(--u)) 0 calc(44*var(--u))}
 .hs-it .lb{font-size:max(9.5px,calc(9.5*var(--u)));text-transform:uppercase;letter-spacing:.03em;line-height:1.25;color:var(--mute);margin-bottom:10px}
 .hs-it .hl{margin:0;font-size:var(--fs);font-weight:400;line-height:1.02;letter-spacing:-.008em;text-transform:uppercase}
 .hs-it .tx{margin:auto 0 0;max-width:calc(250*var(--u));font-size:max(11.5px,calc(11.5*var(--u)));line-height:1.4}
 @media (min-width:900px){
   .hs-run{padding-top:calc(22*var(--u));font-size:max(11px,calc(11*var(--u)))}
   .hs-track{gap:calc(48*var(--u))}
-  .hs-it{flex-basis:calc(470*var(--u));padding:calc(34*var(--u)) 0 calc(60*var(--u))}
+  .hs-it{flex-basis:calc(470*var(--u));padding:calc(44*var(--u)) 0 calc(60*var(--u))}
   .hs-it .lb{font-size:max(12px,calc(12*var(--u)));margin-bottom:calc(14*var(--u))}
   .hs-it .tx{max-width:calc(300*var(--u));font-size:max(14px,calc(14*var(--u)))}
 }
