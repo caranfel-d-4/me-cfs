@@ -57,7 +57,6 @@
 .cc th:nth-child(1){width:calc(46*var(--u))}
 .cc th:nth-child(2){width:calc(46*var(--u))}
 .cc .am{display:none}
-.cc tr.op td.ev2>span{text-decoration:underline;text-decoration-color:#ec6a61;text-decoration-thickness:2px;text-underline-offset:.2em}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .cc{--navy:#80cee6}}
 :root[data-theme="dark"] .cc{--navy:#80cee6}
 /* Links als Kästchen mit runden Ecken (Moodboard „10.11. moodboard farbe“, Bild 11): ein Klick führt auf die Unterseite */
