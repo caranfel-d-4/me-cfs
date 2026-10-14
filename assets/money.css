@@ -5,7 +5,7 @@
 
 /* Kopf: zurück zur Landingpage, Seitenname (wie Ressourcen) */
 .top{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:34px var(--pad) 14px;font-size:max(12px,calc(12*var(--u)))}
-.top b{font-weight:700;text-align:right}
+.top b{font-weight:700;text-align:right;margin-left:auto}
 @media (min-width:900px){.top{padding:calc(26*var(--u)) var(--pad) calc(18*var(--u));font-size:max(14px,calc(16*var(--u)))}}
 
 /* Pfeil B: lang und fein, in Ruhe Schwarz, Hover Dunkelblau */
