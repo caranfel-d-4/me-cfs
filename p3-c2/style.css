@@ -6,7 +6,7 @@
 @media (min-width:900px){:root{--px:calc(40*var(--u))}}
 
 /* Erster Bildschirm */
-.st{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;padding:34px var(--px) 16px}
+.st{display:flex;flex-direction:column;padding:34px var(--px) 16px}
 .st-nav{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-size:max(12px,calc(12*var(--u)))}
 .st-nav b{font-weight:700;letter-spacing:.02em}
 .st-nav .m{display:none}
@@ -15,14 +15,6 @@
 .h1{margin:4px 0 0;font-weight:400;text-transform:uppercase;letter-spacing:-.008em;line-height:.86;white-space:nowrap;font-size:calc(52*var(--u))}
 .rule{border:0;border-top:1.3px solid var(--ink);margin:6px 0 0}
 .sub{margin:10px 0 0;font-weight:400;font-size:calc(21*var(--u));line-height:1.12;letter-spacing:-.008em;text-indent:22%}
-.three{list-style:none;margin:28px 0 0;padding:0;display:flex;flex-direction:column}
-.three li{border-top:1px solid var(--ink);padding:8px 0 12px}
-.three a{display:flex;flex-direction:column;gap:6px;text-decoration:none}
-.three .t{text-transform:uppercase;letter-spacing:-.008em;line-height:.98;font-size:calc(22*var(--u))}
-.three .x{font-size:max(11.5px,calc(11.5*var(--u)));line-height:1.35;color:var(--mute)}
-.three a:hover .t,.three a:focus-visible .t{text-decoration:underline;text-decoration-thickness:.05em;text-underline-offset:.1em}
-.three a:focus-visible{outline:2px solid var(--ink);outline-offset:4px}
-.st .scroll-cue{align-self:center;margin-top:auto;padding-top:14px}
 @media (min-width:900px){
   .st{padding:calc(18*var(--u)) var(--px) calc(22*var(--u))}
   .st-nav{font-size:calc(16*var(--u))}
@@ -30,12 +22,6 @@
   .h1{margin-top:calc(4*var(--u))}
   .rule{margin-top:calc(10*var(--u))}
   .sub{margin-top:calc(14*var(--u));font-size:calc(38*var(--u));text-indent:30%}
-  .three{margin-top:auto;padding-top:calc(48*var(--u));display:grid;grid-template-columns:repeat(3,1fr);gap:calc(20*var(--u))}
-  .three li{border-top:0;padding:0}
-  .three a{align-items:center;text-align:center;gap:calc(10*var(--u))}
-  .three .t{font-size:calc(34*var(--u))}
-  .three .x{font-size:calc(14*var(--u));max-width:calc(300*var(--u))}
-  .st .scroll-cue{padding-top:calc(14*var(--u))}
 }
 
 /* Kopfzeile als dunkelblaues Band (wie G2, 13.10.), weiße Schrift, über die ganze Breite */
@@ -45,9 +31,36 @@
 .h1{margin-top:12px}
 @media (min-width:900px){.st-nav{padding:calc(10*var(--u)) var(--px)}.h1{margin-top:calc(14*var(--u))}}
 
+/* Die drei Punkte (Geld, ME/CFS, Wien) wie auf P1 Z: senkrechtes Scrollen schiebt sie waagrecht durch (14.10.2026).
+   Bereich bleibt stehen (sticky), Skript in index.html; ohne Bewegung (reduced motion) untereinander. Ohne Linie oben */
+.hs-sp{position:relative}
+.hs-pin{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;display:flex;flex-direction:column}
+.hs-run{display:flex;justify-content:space-between;gap:12px;padding:16px var(--px) 0;font-size:max(9px,calc(9*var(--u)));line-height:1.3;text-transform:uppercase;letter-spacing:.03em;color:var(--mute)}
+.hs-run .c{font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--ink)}
+.hs-view{position:relative;flex:1;min-height:0;overflow:hidden}
+.hs-track{position:absolute;top:0;bottom:0;left:0;display:flex;gap:calc(26*var(--u));margin:0;padding:0 var(--px);list-style:none;will-change:transform}
+.hs-it{flex:0 0 calc(300*var(--u));display:flex;flex-direction:column;padding:calc(120*var(--u)) 0 calc(44*var(--u))}
+.hs-it .lb{font-size:max(9.5px,calc(9.5*var(--u)));text-transform:uppercase;letter-spacing:.03em;line-height:1.25;color:var(--mute);margin-bottom:10px}
+.hs-it .hl{margin:0;font-size:var(--fs);font-weight:400;line-height:1.02;letter-spacing:-.008em;text-transform:uppercase}
+.hs-it .tx{margin:auto 0 0;max-width:calc(250*var(--u));font-size:max(11.5px,calc(11.5*var(--u)));line-height:1.4}
+@media (min-width:900px){
+  .hs-run{padding-top:calc(22*var(--u));font-size:max(11px,calc(11*var(--u)))}
+  .hs-track{gap:calc(48*var(--u))}
+  .hs-it{flex-basis:calc(470*var(--u));padding:calc(200*var(--u)) 0 calc(60*var(--u))}
+  .hs-it .lb{font-size:max(12px,calc(12*var(--u)));margin-bottom:calc(14*var(--u))}
+  .hs-it .tx{max-width:calc(300*var(--u));font-size:max(14px,calc(14*var(--u)))}
+}
+.rm .hs-sp{height:auto!important}
+.rm .hs-pin{position:static;height:auto}
+.rm .hs-run .c{display:none}
+.rm .hs-view{overflow:visible}
+.rm .hs-track{position:static;flex-direction:column;transform:none!important}
+.rm .hs-it{flex-basis:auto;padding:30px 0}
+.rm .hs-it .tx{margin-top:14px}
+
 /* Zeitstrahl als Tabelle nach G4 (Farbkonzepte 13.10., Moodboard „10.13.“ Bild 6, Cosmic Calendar), ohne die große Schrift darüber:
    Year, Month, Amount, Event; seit 13.10. ohne Treppe: alle Einträge beginnen bündig untereinander. Am Handy ohne „Amount“ */
-.tl-wrap{border-top:1.5px solid var(--ink);padding:26px var(--px) 0}
+.tl-wrap{padding:26px var(--px) 0}
 /* Angepasst an G2 (13.10., Florence Laprat): Datum in Dunkelblau, Einträge groß in Versalien, Koralle nur für den offenen Call; Tabelle bleibt */
 .cc{--navy:#005b94;width:100%;border-collapse:collapse;table-layout:fixed;font-size:max(14px,calc(14*var(--u)));line-height:1.08;letter-spacing:-.008em}
 .cc th,.cc td{padding:calc(9*var(--u)) 0;text-align:left;vertical-align:baseline;font-weight:400}
