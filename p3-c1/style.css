@@ -6,7 +6,7 @@
 @media (min-width:900px){:root{--px:calc(40*var(--u))}}
 
 /* Erster Bildschirm */
-.st{display:flex;flex-direction:column;padding:34px var(--px) 16px}
+.st{display:flex;flex-direction:column;padding:34px var(--px) 34px}
 .st-nav{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-size:max(12px,calc(12*var(--u)))}
 .st-nav b{font-weight:700;letter-spacing:.02em}
 .st-nav .m{display:none}
@@ -15,7 +15,7 @@
 .h1{margin:4px 0 0;font-weight:400;text-transform:uppercase;letter-spacing:-.008em;line-height:.86;white-space:nowrap;font-size:calc(52*var(--u))}
 .rule{border:0;border-top:1.3px solid var(--ink);margin:6px 0 0}
 .sub{margin:10px 0 0;font-weight:400;font-size:calc(21*var(--u));line-height:1.12;letter-spacing:-.008em;text-indent:22%}
-.three{list-style:none;margin:26px 0 0;padding:0;display:flex;flex-direction:column}
+.three{list-style:none;margin:40px 0 0;padding:0;display:flex;flex-direction:column}
 .three li{border-top:1px solid var(--ink);padding:8px 0 12px}
 .three a{display:flex;flex-direction:column;gap:6px;text-decoration:none}
 .three .t{text-transform:uppercase;letter-spacing:-.008em;line-height:.98;font-size:calc(22*var(--u))}
@@ -23,13 +23,13 @@
 .three a:hover .t,.three a:focus-visible .t{text-decoration:underline;text-decoration-thickness:.05em;text-underline-offset:.1em}
 .three a:focus-visible{outline:2px solid var(--ink);outline-offset:4px}
 @media (min-width:900px){
-  .st{padding:calc(18*var(--u)) var(--px) calc(22*var(--u))}
+  .st{padding:calc(18*var(--u)) var(--px) calc(56*var(--u))}
   .st-nav{font-size:calc(16*var(--u))}
   .st-nav .m{display:inline}
   .h1{margin-top:calc(4*var(--u))}
   .rule{margin-top:calc(10*var(--u))}
   .sub{margin-top:calc(14*var(--u));font-size:calc(38*var(--u));text-indent:30%}
-  .three{margin-top:0;padding-top:calc(46*var(--u));display:grid;grid-template-columns:repeat(3,1fr);gap:calc(20*var(--u))}
+  .three{margin-top:0;padding-top:calc(72*var(--u));display:grid;grid-template-columns:repeat(3,1fr);gap:calc(20*var(--u))}
   .three li{border-top:0;padding:0}
   .three a{align-items:center;text-align:center;gap:calc(10*var(--u))}
   .three .t{font-size:calc(34*var(--u))}
